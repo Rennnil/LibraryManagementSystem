@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="20ede9db-65ad-4f46-8bb0-4cae003f9925" name="Changes" comment="Commit">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/librarymanagementsystem/HelloServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/p1/AddBook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/p1/Connection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/p1/DeleteBook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/p1/LoginServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/p1/LogoutServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/p1/Register.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/p1/UpdateBook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/404.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/Courcepart2.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/Header.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/HeaderSideBar.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/LeftSideBar.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/ManageLibrarian.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/Video.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/addCourse.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/addFaculty.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/addLecture.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/calendar.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/course.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/faculty.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/facultyDetails.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/gallery.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/gulpfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/invoice.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/pic-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/pic-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/playlist.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/post-1-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/post-1-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/post-2-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/profile.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/register.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/reset-password.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/studentQuery.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/thumb-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/thumb-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/vid-1.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/vid-2.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Admin/video-player.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Librarian/AddBook.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Librarian/BookDetails.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Librarian/BooksList.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Librarian/EditProfile.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Librarian/Fine.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Librarian/HeaderSidebar.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Librarian/IssuedBook.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Librarian/Profile.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Librarian/ReturnBook.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Librarian/Students.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Librarian/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Librarian/pic-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Register.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/bootstrap/bootstrap-icons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/bootstrap/fonts/bootstrap-icons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/bootstrap/fonts/bootstrap-icons.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/dropways/dropways.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/dropways/dropways.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/dropways/dropways.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/dropways/dropways.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/dropways/dropways.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/font-awesome/css/font-awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/font-awesome/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/font-awesome/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/font-awesome/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/font-awesome/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/font-awesome/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/font-awesome/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/font-awesome/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/foundation-icons/foundation-icons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/foundation-icons/foundation-icons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/foundation-icons/foundation-icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/foundation-icons/foundation-icons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/foundation-icons/foundation-icons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/ionicons-master/css/ionicons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/ionicons-master/css/ionicons.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/ionicons-master/fonts/ionicons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/ionicons-master/fonts/ionicons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/ionicons-master/fonts/ionicons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/ionicons-master/fonts/ionicons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/themify-icons/fonts/themify.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/themify-icons/fonts/themify.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/themify-icons/fonts/themify.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/themify-icons/fonts/themify.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/fonts/themify-icons/themify-icons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/apple-touch-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/banner-img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/briefcase.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/cancel.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/caution-sign.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/chat-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/chat-img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/check-mark-green.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/check-mark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/chrome.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/coming-soon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/cross.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/demo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/deskapp-logo-white.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/deskapp-logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/edge.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/favicon-16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/favicon-32x32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/firefox.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/forgot-password.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/github.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/icon-Cash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/icon-debit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/icon-online-wallet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/img4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/img5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/internet-explorer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/layout/header-dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/layout/header-white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/layout/sidebar-dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/layout/sidebar-white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/login-page-img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/logo-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/medicine-bro.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/menu-icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/modal-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/modal-img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/modal-img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/new-loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/opera.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/page-icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/paper-map-cuate.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/person.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/photo1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/photo2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/photo3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/photo4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/photo5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/photo6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/photo7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/photo8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/photo9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/plyr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/product-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/product-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/product-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/product-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/product-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/product-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/product-img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/product-img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/product-img4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/profile-photo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/register-page-img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/remedy-amico.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/safari.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/success.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/tick.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/upgrade.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/upload-file-img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/images/wave.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/air-datepicker/dist/css/datepicker.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/air-datepicker/dist/css/datepicker.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/air-datepicker/dist/js/datepicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/air-datepicker/dist/js/datepicker.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/air-datepicker/dist/js/i18n/datepicker.cs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/air-datepicker/dist/js/i18n/datepicker.da.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/air-datepicker/dist/js/i18n/datepicker.de.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/air-datepicker/dist/js/i18n/datepicker.en.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/air-datepicker/dist/js/i18n/datepicker.es.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/air-datepicker/dist/js/i18n/datepicker.fi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/air-datepicker/dist/js/i18n/datepicker.fr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/air-datepicker/dist/js/i18n/datepicker.hu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/air-datepicker/dist/js/i18n/datepicker.nl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/air-datepicker/dist/js/i18n/datepicker.pl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/air-datepicker/dist/js/i18n/datepicker.pt-BR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/air-datepicker/dist/js/i18n/datepicker.pt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/air-datepicker/dist/js/i18n/datepicker.ro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/air-datepicker/dist/js/i18n/datepicker.sk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/air-datepicker/dist/js/i18n/datepicker.zh.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/apexcharts/apexcharts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/apexcharts/apexcharts.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/bootstrap-select.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/bootstrap-select.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/bootstrap-select.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/bootstrap-select.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/css/bootstrap-select.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/css/bootstrap-select.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/css/bootstrap-select.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/bootstrap-select.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/bootstrap-select.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/bootstrap-select.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/bootstrap-select.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-am_ET.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-am_ET.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-am_ET.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-ar_AR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-ar_AR.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-ar_AR.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-bg_BG.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-bg_BG.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-bg_BG.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-cs_CZ.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-cs_CZ.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-cs_CZ.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-da_DK.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-da_DK.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-da_DK.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-de_DE.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-de_DE.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-de_DE.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-en_US.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-en_US.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-en_US.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-es_CL.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-es_CL.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-es_CL.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-es_ES.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-es_ES.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-es_ES.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-et_EE.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-et_EE.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-et_EE.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-eu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-eu.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-eu.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-fa_IR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-fa_IR.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-fa_IR.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-fi_FI.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-fi_FI.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-fi_FI.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-fr_FR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-fr_FR.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-fr_FR.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-hr_HR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-hr_HR.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-hr_HR.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-hu_HU.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-hu_HU.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-hu_HU.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-id_ID.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-id_ID.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-id_ID.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-it_IT.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-it_IT.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-it_IT.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-ja_JP.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-ja_JP.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-ja_JP.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-kh_KM.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-kh_KM.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-kh_KM.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-ko_KR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-ko_KR.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-ko_KR.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-lt_LT.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-lt_LT.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-lt_LT.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-lv_LV.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-lv_LV.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-lv_LV.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-nb_NO.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-nb_NO.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-nb_NO.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-nl_NL.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-nl_NL.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-nl_NL.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-pl_PL.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-pl_PL.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-pl_PL.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-pt_BR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-pt_BR.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-pt_BR.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-pt_PT.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-pt_PT.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-pt_PT.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-ro_RO.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-ro_RO.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-ro_RO.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-ru_RU.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-ru_RU.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-ru_RU.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-sk_SK.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-sk_SK.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-sk_SK.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-sl_SI.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-sl_SI.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-sl_SI.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-sv_SE.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-sv_SE.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-sv_SE.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-tr_TR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-tr_TR.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-tr_TR.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-ua_UA.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-ua_UA.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-ua_UA.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-vi_VN.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-vi_VN.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-vi_VN.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-zh_CN.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-zh_CN.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-zh_CN.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-zh_TW.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-zh_TW.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/dist/js/i18n/defaults-zh_TW.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/.jshintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/bootstrap-select.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-ar_AR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-bg_BG.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-cro_CRO.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-cs_CZ.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-da_DK.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-de_DE.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-en_US.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-es_CL.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-es_ES.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-et_EE.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-eu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-fa_IR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-fi_FI.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-fr_FR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-hu_HU.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-id_ID.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-it_IT.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-ja_JP.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-kh_KM.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-ko_KR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-lt_LT.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-nb_NO.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-nl_NL.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-pl_PL.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-pt_BR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-pt_PT.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-ro_RO.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-ru_RU.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-sk_SK.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-sl_SI.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-sv_SE.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-tr_TR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-ua_UA.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-vi_VN.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-zh_CN.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/js/i18n/defaults-zh_TW.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-select/test.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-wysihtml5-master/bootstrap-wysihtml5.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap-wysihtml5-master/bootstrap-wysihtml5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/bootstrap/popper.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/cropperjs/dist/cropper-init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/cropperjs/dist/cropper.common.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/cropperjs/dist/cropper.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/cropperjs/dist/cropper.esm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/cropperjs/dist/cropper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/cropperjs/dist/cropper.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/cropperjs/dist/cropper.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/datatables/css/dataTables.bootstrap4.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/datatables/css/jquery.dataTables.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/datatables/css/responsive.bootstrap4.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/datatables/css/responsive.dataTables.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/datatables/images/sort_asc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/datatables/images/sort_asc_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/datatables/images/sort_both.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/datatables/images/sort_desc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/datatables/images/sort_desc_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/datatables/js/buttons.bootstrap4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/datatables/js/buttons.flash.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/datatables/js/buttons.html5.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/datatables/js/buttons.print.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/datatables/js/dataTables.bootstrap4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/datatables/js/dataTables.buttons.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/datatables/js/dataTables.responsive.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/datatables/js/jquery.dataTables.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/datatables/js/jszip.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/datatables/js/pdfmake.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/datatables/js/responsive.bootstrap4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/datatables/js/vfs_fonts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/dropzone/src/basic.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/dropzone/src/dropzone.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/dropzone/src/dropzone.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/dropzone/src/dropzone.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/fancybox/dist/jquery.fancybox.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/fancybox/dist/jquery.fancybox.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/fancybox/dist/jquery.fancybox.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/fancybox/dist/jquery.fancybox.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/fullcalendar/fullcalendar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/fullcalendar/fullcalendar.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/highcharts-6.0.7/code/highcharts-3d.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/highcharts-6.0.7/code/highcharts-3d.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/highcharts-6.0.7/code/highcharts-3d.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/highcharts-6.0.7/code/highcharts-more.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/highcharts-6.0.7/code/highcharts-more.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/highcharts-6.0.7/code/highcharts-more.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/highcharts-6.0.7/code/highcharts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/highcharts-6.0.7/code/highcharts.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/highcharts-6.0.7/code/highcharts.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/highlight.js/src/highlight.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/highlight.js/src/highlight.pack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/highlight.js/src/styles/solarized-dark.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/ion-rangeslider/css/ion.rangeSlider.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/ion-rangeslider/js/ion.rangeSlider.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/jQuery-Knob-master/jquery.knob.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/jquery-asColor/dist/jquery-asColor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/jquery-asColorPicker/dist/css/asColorPicker.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/jquery-asColorPicker/dist/images/alpha.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/jquery-asColorPicker/dist/images/hue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/jquery-asColorPicker/dist/images/saturation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/jquery-asColorPicker/dist/images/transparent.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/jquery-asColorPicker/jquery-asColorPicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/jquery-asGradient/dist/jquery-asGradient.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/jquery-steps/jquery.steps.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/jquery-steps/jquery.steps.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/jvectormap/jquery-jvectormap-2.0.3.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/jvectormap/jquery-jvectormap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/jvectormap/jquery-jvectormap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.concat.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/malihu-custom-scrollbar-plugin-master/jquery.mousewheel.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/plyr/dist/plyr.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/plyr/dist/plyr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/plyr/dist/plyr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/css/select2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/css/select2.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/af.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/ar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/az.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/bg.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/bs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/cs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/da.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/de.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/dsb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/el.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/en.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/es.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/et.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/eu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/fa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/fi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/fr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/gl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/he.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/hi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/hr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/hsb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/hu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/hy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/id.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/is.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/it.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/ja.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/km.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/ko.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/lt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/lv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/mk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/ms.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/nb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/nl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/pl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/ps.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/pt-BR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/pt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/ro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/ru.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/sk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/sl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/sr-Cyrl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/sr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/sv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/th.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/tk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/tr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/uk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/vi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/zh-CN.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/i18n/zh-TW.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/select2.full.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/select2.full.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/select2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/select2/dist/js/select2.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/slick/slick.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/slick/slick.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/sweetalert2/sweet-alert.init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/sweetalert2/sweetalert2.all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/sweetalert2/sweetalert2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/switchery/switchery.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/switchery/switchery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/timedropper/timedropper.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/timedropper/timedropper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/timedropper/timedropper.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/timedropper/timedropper.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/plugins/wysihtml5-master/dist/wysihtml5-0.3.0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/scripts/clipboard.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/scripts/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/scripts/moment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/scripts/setting.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/styles/media.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/styles/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/src/styles/theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/bootstrap-icons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/bootstrap-icons.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/bootstrap/bootstrap-icons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/bootstrap/fonts/bootstrap-icons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/bootstrap/fonts/bootstrap-icons.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/dropways.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/dropways.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/dropways.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/dropways.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/dropways.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/font-awesome/css/font-awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/font-awesome/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/foundation-icons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/foundation-icons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/foundation-icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/foundation-icons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/foundation-icons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/ionicons-master/css/ionicons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/ionicons-master/css/ionicons.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/ionicons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/ionicons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/ionicons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/ionicons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/themify-icons/themify-icons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/themify.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/themify.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/themify.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/fonts/themify.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/apple-touch-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/banner-img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/briefcase.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/cancel.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/caution-sign.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/chat-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/chat-img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/check-mark-green.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/check-mark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/chrome.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/coming-soon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/cross.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/demo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/deskapp-logo-white.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/deskapp-logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/edge.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/favicon-16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/favicon-32x32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/firefox.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/forgot-password.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/github.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/icon-Cash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/icon-debit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/icon-online-wallet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/img4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/img5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/internet-explorer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/layout/header-dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/layout/header-white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/layout/sidebar-dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/layout/sidebar-white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/login-page-img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/logo-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/medicine-bro.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/menu-icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/modal-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/modal-img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/modal-img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/new-loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/opera.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/page-icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/paper-map-cuate.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/person.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/photo1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/photo2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/photo3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/photo4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/photo5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/photo6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/photo7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/photo8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/photo9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/plyr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/product-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/product-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/product-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/product-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/product-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/product-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/product-img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/product-img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/product-img4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/profile-photo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/register-page-img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/remedy-amico.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/safari.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/success.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/tick.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/upgrade.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/upload-file-img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/images/wave.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/scripts/advanced-components.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/scripts/apexcharts-setting.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/scripts/calendar-setting.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/scripts/colorpicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/scripts/core.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/scripts/core.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/scripts/dashboard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/scripts/dashboard2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/scripts/dashboard3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/scripts/datatable-setting.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/scripts/highchart-setting.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/scripts/jvectormap-setting.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/scripts/knob-chart-setting.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/scripts/layout-settings.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/scripts/process.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/scripts/range-slider-setting.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/scripts/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/scripts/script.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/scripts/steps-setting.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/styles/core.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/styles/core.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/styles/icon-font.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/styles/icon-font.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/styles/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/vendors/styles/style.min.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Rennnil"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Rennnil/LibraryManagementSystem.git",
+    "accountId": "cd65042b-df56-494f-866d-97a00f33ad01"
+  }
+}]]></component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2z0WqIvYMC5qi2ezL5LKH0rLGYv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/IDE/LibraryManagementSystem/src/main/webapp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IDE\LibraryManagementSystem\src\main\webapp" />
+      <recent name="D:\IDE\LibraryManagementSystem\src\main\java" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 9.0.58" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.58" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment>
+        <artifact name="LibraryManagementSystem:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/LibraryManagementSystem_war_exploded" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="LibraryManagementSystem:war exploded" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="20ede9db-65ad-4f46-8bb0-4cae003f9925" name="Changes" comment="" />
+      <created>1750868663362</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1750868663362</updated>
+      <workItem from="1750868664165" duration="2174000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit" />
+  </component>
+</project>
