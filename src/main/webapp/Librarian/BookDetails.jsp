@@ -204,11 +204,14 @@
                                 byte[] imgBytes = rs.getBytes("IMAGE");
                                 String base64Image = java.util.Base64.getEncoder().encodeToString(imgBytes);
                                 String imageSrc = "data:image/jpeg;base64," + base64Image;
+                                byte[] imgBytes1 = rs.getBytes("AUTHOR_IMAGE");
+                                String base64Image1 = java.util.Base64.getEncoder().encodeToString(imgBytes1);
+                                String imageSrc1 = "data:image/jpeg;base64," + base64Image1;
                     %>
                     <div class="row">
                         <div class="col-lg-3 col-md-12 col-sm-12 mt-3">
                             <div class="product-detail-desc pd-20 card-box height-100-p" style="height: 400px; display: flex; align-items: center; justify-content: center;">
-                                <img src="<%=imageSrc%>" alt="Book Image"
+                                <img src="<%=imageSrc1%>" alt="Book Image"
                                      style="max-height: 100%; max-width: 100%; object-fit: contain; border-radius: 10px;">
                             </div>
                         </div>
@@ -219,7 +222,7 @@
                                     <div class="demo p-4" style="background-image: url('https://i.makeagif.com/media/6-21-2021/Ml33kt.gif');border-radius: 10px;color: white;justify-content: center;background-repeat: no-repeat;
 											background-attachment: fixed;
 											background-size: cover; text-align: center; display: flex; flex-direction: column; align-items: center;">
-                                        <img class="profile-img" src="pic-1.jpg" alt="">
+                                        <img class="profile-img" src="<%=imageSrc%>" alt="">
                                         <div>
                                             <h3 style="font-size: large; margin-top: 10px; color: white;"><%=author%></h3>
                                             <!-- <span>Published Year</span> -->

@@ -3,13 +3,9 @@ package p1;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
+import javax.servlet.http.*;
+
+import java.io.*;
 import java.sql.*;
 import java.sql.Connection;
 
@@ -41,16 +37,21 @@ public class AddBook extends HttpServlet {
         int qty = (qtyStr != null && !qtyStr.isEmpty()) ? Integer.parseInt(qtyStr) : 0;
 
         Part imagePart = request.getPart("bookimage");
+        Part imagePart1 = request.getPart("authorimage");
 
         Connection con = null;
         PreparedStatement ps = null;
+
+        HttpSession session = request.getSession(false);
+        int userId = (int) session.getAttribute("userId");
+
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "system");
 
-            String sql = "INSERT INTO BOOK (BOOK_ID, TITLE, AUTHOR, PUBLISHER, CATEGORY, YEAR_PUBLISHED, QNTY, AVAILABLE_QNTY, IMAGE) " +
-                    "VALUES (BOOK_ID_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO BOOK (BOOK_ID, TITLE, AUTHOR, PUBLISHER, CATEGORY, YEAR_PUBLISHED, QNTY, AVAILABLE_QNTY, IMAGE,AUTHOR_IMAGE,USER_ID) " +
+                    "VALUES (BOOK_ID_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             ps = con.prepareStatement(sql);
             ps.setString(1, title);
@@ -67,6 +68,13 @@ public class AddBook extends HttpServlet {
             } else {
                 ps.setNull(8, Types.BLOB);
             }
+            if (imagePart1 != null && imagePart1.getSize() > 0) {
+                InputStream inputStream1 = imagePart1.getInputStream();
+                ps.setBinaryStream(9, inputStream1, imagePart1.getSize()); // ✅ Streaming the image
+            } else {
+                ps.setNull(9, Types.BLOB);
+            }
+            ps.setInt(10, userId);
 
             int inserted = ps.executeUpdate();
 

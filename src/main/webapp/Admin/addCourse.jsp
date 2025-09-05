@@ -165,7 +165,7 @@
                                 int qty = rs.getInt("QNTY");
                                 int available = rs.getInt("AVAILABLE_QNTY");
 
-                                byte[] imgBytes = rs.getBytes("IMAGE");
+                                byte[] imgBytes = rs.getBytes("AUTHOR_IMAGE");
                                 String base64Image = java.util.Base64.getEncoder().encodeToString(imgBytes);
                                 String imageSrc = "data:image/jpeg;base64," + base64Image;
                     %>
@@ -185,7 +185,6 @@
                                 </div>
                             </div>
                         </td>
-<%--                        <td class="book-id"><%=bookId%></td>--%>
                         <td class="book-author"><%=author%></td>
                         <td class="book-publisher"><%=publisher%></td>
                         <td class="book-category"><%=category%></td>
@@ -272,8 +271,17 @@
                         <input type="text" name="publisher" class="form-control">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1">Category</label>
-                        <input type="text" name="category" class="form-control">
+                        <label for="exampleInputEmail1">Category</label>
+                        <select name="category" class="form-control">
+                            <option value="Novels">Novels</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Children">Children</option>
+                            <option value="Dystopian">Dystopian</option>
+                            <option value="History">History</option>
+                            <option value="Horror">Horror</option>
+                            <option value="Mystery">Mystery</option>
+                            <option value="Mythology">Mythology</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1">Published Year</label>
@@ -282,6 +290,10 @@
                     <div class="mb-3">
                         <label for="exampleInputPassword1">Qty</label>
                         <input type="number" name="qty" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1">Author Image</label>
+                        <input type="file" name="authorimage" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1">Book Image</label>

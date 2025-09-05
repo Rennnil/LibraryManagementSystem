@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -34,7 +35,7 @@ public class Register extends HttpServlet {
         String fname = request.getParameter("firstname");
         String lname = request.getParameter("lastname");
         String gender = request.getParameter("gender");
-        String mobile = request.getParameter(("mobile"));
+        String mobile = request.getParameter("mobile");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String address = request.getParameter("address");
@@ -69,14 +70,19 @@ public class Register extends HttpServlet {
                 ps.setNull(9, Types.BLOB);
             }
 
+            String source = request.getParameter("source"); // Check if request is from admin
+
             int result = ps.executeUpdate();
             if (result > 0) {
-                out.println("<h3 style='color:green;'>Registration successful!</h3>");
-                response.sendRedirect(  "Login.jsp");
+                if ("admin".equalsIgnoreCase(source)) {
+                    response.sendRedirect(request.getContextPath() + "/Admin/ManageLibrarian.jsp");
+                } else {
+                    response.sendRedirect(request.getContextPath() + "/Login.jsp");
+
+                }
             } else {
                 out.println("<h3 style='color:red;'>Registration failed.</h3>");
             }
-
             ps.close();
             con.close();
 

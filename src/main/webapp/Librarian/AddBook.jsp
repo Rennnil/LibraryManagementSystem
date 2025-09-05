@@ -6,7 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="p1.Connection" %>
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.sql.PreparedStatement" %>
 <%@ page import="java.sql.ResultSet" %>
@@ -105,6 +104,10 @@
     <!-- End Google Tag Manager -->
 </head>
 <body>
+<%
+HttpSession session1 = request.getSession(false);
+int userId = (int) session1.getAttribute("userId");
+%>
 
 <jsp:include page="HeaderSidebar.jsp" flush="true"></jsp:include>
 
@@ -159,9 +162,10 @@
                         try {
                             Class.forName("oracle.jdbc.driver.OracleDriver");
                             java.sql.Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "system");
-                            Statement st=con.createStatement();
-                            String sql = "SELECT * FROM BOOK ORDER BY BOOK_ID DESC";
-                            ResultSet rs = st.executeQuery(sql);
+                            String sql = "SELECT * FROM BOOK WHERE USER_ID=?";
+                            PreparedStatement pr=con.prepareStatement(sql);
+                            pr.setInt(1,userId);
+                            ResultSet rs = pr.executeQuery();
 
                             while (rs.next()) {
                                 int bookId = rs.getInt("BOOK_ID");
@@ -172,8 +176,7 @@
                                 int year = rs.getInt("YEAR_PUBLISHED");
                                 int qty = rs.getInt("QNTY");
                                 int available = rs.getInt("AVAILABLE_QNTY");
-
-                                byte[] imgBytes = rs.getBytes("IMAGE");
+                                byte[] imgBytes = rs.getBytes("AUTHOR_IMAGE");
                                 String base64Image = java.util.Base64.getEncoder().encodeToString(imgBytes);
                                 String imageSrc = "data:image/jpeg;base64," + base64Image;
                     %>
@@ -193,7 +196,6 @@
                                 </div>
                             </div>
                         </td>
-                        <%--                        <td class="book-id"><%=bookId%></td>--%>
                         <td class="book-author"><%=author%></td>
                         <td class="book-publisher"><%=publisher%></td>
                         <td class="book-category"><%=category%></td>
@@ -226,7 +228,7 @@
                     <%
                             }
                             rs.close();
-                            st.close();
+                            pr.close();
                             con.close();
                         } catch (Exception e) {
                             PrintWriter pw = response.getWriter();
@@ -280,8 +282,17 @@
                         <input type="text" name="publisher" class="form-control">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1">Category</label>
-                        <input type="text" name="category" class="form-control">
+                        <label for="exampleInputEmail1">Category</label>
+                        <select name="category" class="form-control">
+                            <option value="Novels">Novels</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Children">Children</option>
+                            <option value="Dystopian">Dystopian</option>
+                            <option value="History">History</option>
+                            <option value="Horror">Horror</option>
+                            <option value="Mystery">Mystery</option>
+                            <option value="Mythology">Mythology</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1">Published Year</label>
@@ -292,10 +303,13 @@
                         <input type="number" name="qty" class="form-control">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1">Book Image</label>
+                        <label for="exampleInputPassword1">Author Image</label>
                         <input type="file" name="bookimage" class="form-control">
                     </div>
-
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1">Book Image</label>
+                        <input type="file" name="authorimage" class="form-control">
+                    </div>
                     <div class="d-flex" style="gap: 20px;">
                         <button type="submit" class="btn btn-primary w-75">Add Book</button>
                         <button

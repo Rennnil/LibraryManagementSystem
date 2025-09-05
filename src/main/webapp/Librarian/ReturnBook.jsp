@@ -1,4 +1,9 @@
-<%--
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.util.Base64" %>
+<%@ page import="java.sql.Connection" %><%--
   Created by IntelliJ IDEA.
   User: lakha
   Date: 19-06-2025
@@ -115,61 +120,84 @@
                 </div>
             </div>
             <div class="card-box pb-10">
-                <div class="h5 pd-20 mb-0">Return Books</div>
-                <table class=" table nowrap  data-table-export ">
+                <div class="h5 pd-20 mb-0">Recent Returned Students</div>
+                <table class="table nowrap data-table-export">
                     <thead>
                     <tr>
-                        <th class="table-plus">Book Name</th>
-                        <th>Student Name</th>
-                        <th>Return Date</th>
-                        <th>Librarian name</th>
-                        <th>Condition</th>
+                        <th class="table-plus">Student Name</th>
+                        <th>Book Title</th>
+                        <th>Mobile Number</th>
                         <th class="datatable-nosort">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
+                    <%
+                        PrintWriter pw = response.getWriter();
+                        try {
+                            Class.forName("oracle.jdbc.driver.OracleDriver");
+                            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "system");
+
+                            String sql = "SELECT ib.user_id, ib.book_id, b.TITLE, b.IMAGE, " +
+                                    "u.FNAME || ' ' || u.LNAME AS USERNAME, u.MOBILE_NO " +
+                                    "FROM ISSUE_BOOK ib " +
+                                    "JOIN USERS u ON ib.user_id = u.user_id " +
+                                    "JOIN BOOK b ON ib.book_id = b.book_id " +
+                                    "WHERE ib.STATUS = 'Returned'";
+
+                            PreparedStatement ps = con.prepareStatement(sql);
+                            ResultSet rs = ps.executeQuery();
+
+                            while (rs.next()) {
+                                int userId = rs.getInt("USER_ID");
+                                int bookId = rs.getInt("BOOK_ID");
+                                String bookTitle = rs.getString("TITLE");
+                                String username = rs.getString("USERNAME");
+                                String mobile = rs.getString("MOBILE_NO");
+                                byte[] imgBytes = rs.getBytes("IMAGE");
+
+                                String imageSrc = "images/default-user.png";
+                                if (imgBytes != null && imgBytes.length > 0) {
+                                    String base64Image = Base64.getEncoder().encodeToString(imgBytes);
+                                    imageSrc = "data:image/jpeg;base64," + base64Image;
+                                }
+                    %>
                     <tr>
                         <td class="table-plus">
                             <div class="name-avatar d-flex align-items-center">
                                 <div class="avatar mr-2 flex-shrink-0">
-                                    <img
-                                            src="pic-3.jpg"
-                                            class="border-radius-100 shadow"
-                                            width="40"
-                                            height="40"
-                                            alt=""
-                                    />
+                                    <img src="<%= imageSrc %>" class="border-radius-100 shadow" width="40" height="40" alt="Profile"/>
                                 </div>
                                 <div class="txt">
-                                    <div class="weight-600">Book Name</div>
+                                    <div class="weight-600"><%= username %></div>
                                 </div>
                             </div>
                         </td>
-                        <td>Student name</td>
-                        <td>Return Date</td>
-                        <td>Librarian name</td>
-                        <td>Condition</td>
-                        <!-- <td>
-                            <span
-                                class="badge badge-pill"
-                                data-bgcolor="#e7ebf5"
-                                data-color="#265ed7"
-                                >Typhoid</span
-                            >
-                        </td> -->
+                        <td><%= bookTitle %></td>
+                        <td><%= mobile %></td>
                         <td>
                             <div class="table-actions">
-
-                                <a href="" class="btn" data-color="#e95959"
-                                   data-toggle="modal" data-target="#deleteModal"
-                                ><i class="icon-copy dw dw-delete-3"></i
-                                ></a>
+                                <a href="?id=<%= userId %>" class="btn" data-color="#e95959"
+                                   data-toggle="modal" data-target="#deleteModal">
+                                    <i class="icon-copy dw dw-delete-3"></i>
+                                </a>
                             </div>
                         </td>
                     </tr>
+                    <%
+                            }
+
+                            rs.close();
+                            ps.close();
+                            con.close();
+
+                        } catch (Exception e) {
+                            pw.println("<tr><td colspan='4'>Error: " + e.getMessage() + "</td></tr>");
+                        }
+                    %>
                     </tbody>
                 </table>
             </div>
+
         </div>
     </div>
 </div>

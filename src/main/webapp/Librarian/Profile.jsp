@@ -213,11 +213,12 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="<%=imageSrc%>" alt="Admin"
+                                    <img src="<%= session.getAttribute("image") %>" alt="Admin"
                                          class="rounded-circle" width="150">
+    
                                     <div class="mt-3">
                                         <h4><%=fullName%></h4>
-                                        <p class="text-muted font-size-sm mt-3">Bay Area, San Francisco, CA</p>
+<%--                                        <p class="text-muted font-size-sm mt-3">Bay Area, San Francisco, CA</p>--%>
                                     </div>
                                 </div>
                             </div>

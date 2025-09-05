@@ -182,7 +182,7 @@
 <div class="pre-loader">
     <div class="pre-loader-box">
         <div class="loader-logo">
-            <img src="vendors/images/deskapp-logo.svg" alt=""/>
+            <img src="vendors/images/Logoo.png" alt=""/>
         </div>
         <div class="loader-progress" id="progress_div">
             <div class="bar" id="bar1"></div>
@@ -197,8 +197,7 @@
         <!-- Left Panel -->
         <div class="col-md-3 register-left">
             <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
-            <h3>Welcome To <br>HR Book Store</h3>
-            <p>You are 30 seconds away from earning your own money!</p>
+            <h3>Welcome To <br>Lilbrio</h3>
             <a href="Login.jsp"><input type="submit" value="Login"/></a><br/>
         </div>
 
@@ -225,7 +224,6 @@
                                         </div>
                                         <div class="form-group">
                                             <input type="text" name="address" class="form-control" placeholder="Your Address *" required >
-<%--                                            <textarea name="address" class="form-control" placeholder="Your Address *" required></textarea>--%>
                                         </div>
                                         <div class="form-group">
                                             <label class="radio inline">

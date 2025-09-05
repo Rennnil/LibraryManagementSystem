@@ -6,10 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.sql.DriverManager" %>
-<%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.util.Base64" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -120,57 +119,83 @@
             </div>
             <div class="card-box pb-10">
                 <div class="h5 pd-20 mb-0">Recent Students</div>
-                <table class=" table nowrap  data-table-export ">
+                <table class="table nowrap data-table-export">
                     <thead>
                     <tr>
-                        <th class="table-plus">Book Name</th>
-                        <th>Student Name</th>
-                        <th>Issue Date</th>
-                        <th>Return Date</th>
-                        <th>Status</th>
+                        <th class="table-plus">Student Name</th>
+                        <th>Book Title</th>
+                        <th>Mobile Number</th>
+                        <th>Address</th>
                         <th class="datatable-nosort">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
+                    <%
+                        try {
+                            Class.forName("oracle.jdbc.driver.OracleDriver");
+                            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "system");
+
+                            // Optional: get current librarian ID if needed for filtering
+                            // Integer librarianId = (Integer) session.getAttribute("userId");
+
+                            String sql = "SELECT ib.user_id, ib.book_id, b.TITLE, b.IMAGE, " +
+                                    "u.FNAME || ' ' || u.LNAME AS USERNAME, u.MOBILE_NO, u.ADDRESS " +
+                                    "FROM ISSUE_BOOK ib " +
+                                    "JOIN USERS u ON ib.user_id = u.user_id " +
+                                    "JOIN BOOK b ON ib.book_id = b.book_id";
+
+                            PreparedStatement ps = con.prepareStatement(sql);
+                            ResultSet rs = ps.executeQuery();
+
+                            while (rs.next()) {
+                                int userId = rs.getInt("USER_ID");
+                                int bookId = rs.getInt("BOOK_ID");
+                                String bookTitle = rs.getString("TITLE");
+                                String username = rs.getString("USERNAME");
+                                String mobile = rs.getString("MOBILE_NO");
+                                String address = rs.getString("ADDRESS");
+                                byte[] imgBytes = rs.getBytes("IMAGE");
+
+                                String imageSrc = "images/default-user.png"; // default fallback
+                                if (imgBytes != null && imgBytes.length > 0) {
+                                    String base64Image = Base64.getEncoder().encodeToString(imgBytes);
+                                    imageSrc = "data:image/jpeg;base64," + base64Image;
+                                }
+                    %>
                     <tr>
                         <td class="table-plus">
                             <div class="name-avatar d-flex align-items-center">
                                 <div class="avatar mr-2 flex-shrink-0">
-                                    <img
-                                            src="pic-3.jpg"
-                                            class="border-radius-100 shadow"
-                                            width="40"
-                                            height="40"
-                                            alt=""
-                                    />
+                                    <img src="<%= imageSrc %>" class="border-radius-100 shadow" width="40" height="40" alt="Profile"/>
                                 </div>
                                 <div class="txt">
-                                    <div class="weight-600">Book Name</div>
+                                    <div class="weight-600"><%= username %></div>
                                 </div>
                             </div>
                         </td>
-                        <td>Student name</td>
-                        <td>Issue Date</td>
-                        <td>Return Date</td>
-                        <td>Status</td>
-                        <!-- <td>
-                            <span
-                                class="badge badge-pill"
-                                data-bgcolor="#e7ebf5"
-                                data-color="#265ed7"
-                                >Typhoid</span
-                            >
-                        </td> -->
+                        <td><%= bookTitle %></td>
+                        <td><%= mobile %></td>
+                        <td><%= address %></td>
                         <td>
                             <div class="table-actions">
-
-                                <a href="" class="btn" data-color="#e95959"
-                                   data-toggle="modal" data-target="#deleteModal"
-                                ><i class="icon-copy dw dw-delete-3"></i
-                                ></a>
+                                <a href="?id=<%= userId %>" class="btn" data-color="#e95959"
+                                   data-toggle="modal" data-target="#deleteModal">
+                                    <i class="icon-copy dw dw-delete-3"></i>
+                                </a>
                             </div>
                         </td>
                     </tr>
+                    <%
+                            }
+
+                            rs.close();
+                            ps.close();
+                            con.close();
+
+                        } catch (Exception e) {
+                            out.println("<tr><td colspan='5'>Error: " + e.getMessage() + "</td></tr>");
+                        }
+                    %>
                     </tbody>
                 </table>
             </div>

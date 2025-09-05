@@ -10,6 +10,7 @@
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.sql.PreparedStatement" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -293,6 +294,11 @@
 
 <jsp:include page="HeaderSidebar.jsp" flush="true"></jsp:include>
 
+<%
+    HttpSession session1 = request.getSession(false);
+    int userId = (int) session1.getAttribute("userId");
+%>
+
 <div class="main-container">
     <div class="pd-ltr-20 xs-pd-20-10">
         <div class="min-height-200px">
@@ -323,28 +329,28 @@
                             try {
                                 Class.forName("oracle.jdbc.driver.OracleDriver");
                                 java.sql.Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "system");
-                                Statement st=con.createStatement();
-                                String sql = "SELECT * FROM BOOK";
-                                ResultSet rs = st.executeQuery(sql);
+                                String sql = "SELECT * FROM BOOK WHERE USER_ID=?";
+                                PreparedStatement pr=con.prepareStatement(sql);
+                                pr.setInt(1,userId);
+                                ResultSet rs = pr.executeQuery();
                                 while (rs.next()) {
                                     int bookId = rs.getInt("BOOK_ID");
                                     String title = rs.getString("TITLE");
-                                    String author = rs.getString("AUTHOR");
                                     String publisher = rs.getString("PUBLISHER");
-                                    String category = rs.getString("CATEGORY");
                                     int year = rs.getInt("YEAR_PUBLISHED");
-                                    int qty = rs.getInt("QNTY");
-                                    int available = rs.getInt("AVAILABLE_QNTY");
                                     byte[] imgBytes = rs.getBytes("IMAGE");
                                     String base64Image = java.util.Base64.getEncoder().encodeToString(imgBytes);
                                     String imageSrc = "data:image/jpeg;base64," + base64Image;
+                                    byte[] imgBytes1 = rs.getBytes("AUTHOR_IMAGE");
+                                    String base64Image1 = java.util.Base64.getEncoder().encodeToString(imgBytes1);
+                                    String imageSrc1 = "data:image/jpeg;base64," + base64Image1;
                         %>
                         <a href="BookDetails.jsp?id=<%=bookId%>" class="ag-courses_item">
                             <div class="ag-courses_item">
                                 <div class="course-img-cover">
-                                    <img class="course-img" src="<%=imageSrc%>" alt=""/>
+                                    <img class="course-img" src="<%=imageSrc1%>" alt=""/>
                                     <div class="fac-img-cover">
-                                        <img class="fac-img" src="pic-1.jpg" alt=""/>
+                                        <img class="fac-img" src="<%=imageSrc%>" alt=""/>
                                     </div>
                                 </div>
                                 <div class="ag-courses-item_link">
@@ -366,7 +372,7 @@
                         <%
                                 }
                                 rs.close();
-                                st.close();
+                                pr.close();
                                 con.close();
                             } catch (Exception e) {
                                 PrintWriter pw = response.getWriter();

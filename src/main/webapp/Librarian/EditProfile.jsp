@@ -14,7 +14,7 @@
 <html>
 <head>
     <!-- Basic Page Info -->
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
 
     <!-- Site favicon -->
@@ -48,21 +48,22 @@
             rel="stylesheet"
     />
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="../vendors/styles/core.css" />
+    <link rel="stylesheet" type="text/css" href="../vendors/styles/core.css"/>
     <link
             rel="stylesheet"
             type="text/css"
             href="../vendors/styles/icon-font.min.css"
     />
-    <link rel="stylesheet" type="text/css" href="../vendors/styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="../vendors/styles/style.css"/>
 
     <style>
 
         .main-body {
             padding: 15px;
         }
+
         .card {
-            box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
         }
 
         .card {
@@ -73,7 +74,7 @@
             word-wrap: break-word;
             background-color: #ffffff;
             background-clip: border-box;
-            border: 0 solid rgba(0,0,0,.125);
+            border: 0 solid rgba(0, 0, 0, .125);
             border-radius: .25rem;
         }
 
@@ -88,22 +89,25 @@
             margin-left: -8px;
         }
 
-        .gutters-sm>.col, .gutters-sm>[class*=col-] {
+        .gutters-sm > .col, .gutters-sm > [class*=col-] {
             padding-right: 8px;
             padding-left: 8px;
         }
+
         .mb-3, .my-3 {
-            margin-bottom: 1rem!important;
+            margin-bottom: 1rem !important;
         }
 
         .bg-gray-300 {
             background-color: #e2e8f0;
         }
+
         .h-100 {
-            height: 100%!important;
+            height: 100% !important;
         }
+
         .shadow-none {
-            box-shadow: none!important;
+            box-shadow: none !important;
         }
     </style>
 
@@ -119,9 +123,11 @@
     ></script>
     <script>
         window.dataLayer = window.dataLayer || [];
+
         function gtag() {
             dataLayer.push(arguments);
         }
+
         gtag("js", new Date());
 
         gtag("config", "G-GBZ3SGGX85");
@@ -130,7 +136,7 @@
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || [];
-            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+            w[l].push({"gtm.start": new Date().getTime(), event: "gtm.js"});
             var f = d.getElementsByTagName(s)[0],
                 j = d.createElement(s),
                 dl = l != "dataLayer" ? "&l=" + l : "";
@@ -168,51 +174,54 @@
                 </div>
             </div>
             <div class="pd-20  mb-30">
-
                 <!-- /Breadcrumb -->
-                <%
-                    int id=Integer.parseInt(request.getParameter("id"));
-                    try {
-                        Class.forName("oracle.jdbc.driver.OracleDriver");
-                        java.sql.Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "system");
-                        String sql = "SELECT * FROM users where USER_ID=?";
-                        PreparedStatement pr=con.prepareStatement(sql);
-                        pr.setInt(1, id);
-                        ResultSet rs = pr.executeQuery();
-                        if (rs.next()) {
-                            String fname=rs.getString("FNAME");
-                            String lname=rs.getString("LNAME");
-                            String fullName = fname + " " + lname;
-                            String mobile = rs.getString("MOBILE_NO");
-                            int roleId = rs.getInt("ROLE_ID");
-                            String address = rs.getString("ADDRESS");
-                            byte[] imgBytes = rs.getBytes("IMAGE");
-                            String base64Image = "";
-                            if (imgBytes != null) {
-                                base64Image = java.util.Base64.getEncoder().encodeToString(imgBytes);
-                            }
-                            String imageSrc = "data:image/jpeg;base64," + base64Image;
-                %>
-                <div class="row gutters-sm">
-                    <div class="col-md-4 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="<%=imageSrc%>" alt="Admin" class="rounded-circle" width="150">
-                                    <div class="mt-3">
-<%--                                        <h4>Librarian Name</h4>--%>
-                                        <p class="text-muted font-size-sm mt-3"><input type="file"></p>
+                <form method="post" action="../EditProfileServlet" enctype="multipart/form-data">
+                    <%
+                        int id = Integer.parseInt(request.getParameter("id"));
+                        try {
+                            Class.forName("oracle.jdbc.driver.OracleDriver");
+                            java.sql.Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "system");
+                            String sql = "SELECT * FROM users where USER_ID=?";
+                            PreparedStatement pr = con.prepareStatement(sql);
+                            pr.setInt(1, id);
+                            ResultSet rs = pr.executeQuery();
+                            if (rs.next()) {
+                                String fname = rs.getString("FNAME");
+                                String lname = rs.getString("LNAME");
+                                String fullName = fname + " " + lname;
+                                String mobile = rs.getString("MOBILE_NO");
+                                int roleId = rs.getInt("ROLE_ID");
+                                String address = rs.getString("ADDRESS");
+                                byte[] imgBytes = rs.getBytes("IMAGE");
+                                String base64Image = "";
+                                if (imgBytes != null) {
+                                    base64Image = java.util.Base64.getEncoder().encodeToString(imgBytes);
+                                }
+                                String imageSrc = "data:image/jpeg;base64," + base64Image;
+                    %>
+                    <div class="row gutters-sm">
+                        <div class="col-md-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex flex-column align-items-center text-center">
+                                        <img src="<%= session.getAttribute("image") %>" alt="Admin" class="rounded-circle" width="150">
+
+                                        <div class="mt-3">
+                                            <%--                                        <h4>Librarian Name</h4>--%>
+                                            <p class="text-muted font-size-sm mt-3"><input type="file" name="editimage">
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="modal-body">
-                                        <form method="post" action="EditLibrarian" enctype="multipart/form-data">
+                        <div class="col-md-8">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="modal-body">
+
+                                            <input type="hidden" name="id" value="<%=id%>" class="form-control">
                                             <div class="mb-3">
                                                 <label for="exampleInputEmail1">First Name</label>
                                                 <input type="text" name="fname" value="<%=fname%>" class="form-control">
@@ -223,33 +232,36 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleInputPassword1">Mobile Number</label>
-                                                <input type="text" name="mobile" value="<%=mobile%>" class="form-control">
+                                                <input type="text" name="mobile" value="<%=mobile%>"
+                                                       class="form-control">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleInputEmail1">Address</label>
-                                                <input type="text" name="address" value="<%=address%>" class="form-control">
+                                                <input type="text" name="address" value="<%=address%>"
+                                                       class="form-control">
                                             </div>
-                                            <div class="d-flex" style="gap: 20px;">
-                                                <input type="submit">
-                                                <button type="submit" class="btn btn-primary w-100">Edit Profile</button>
+                                            <div class="mb-3">
+                                                <input type="submit" value="Submit" class="btn btn-outline-primary"
+                                                       style="background-color: #0d6efd; color: white; border: 1px solid #0d6efd;">
                                             </div>
-                                        </form>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <%
+                    <%
+                            }
+                            rs.close();
+                            pr.close();
+                            con.close();
+                        } catch (Exception e) {
+                            PrintWriter pw = response.getWriter();
+                            pw.println("<tr><td colspan='8'>Error: " + e.getMessage() + "</td></tr>");
                         }
-                        rs.close();
-                        pr.close();
-                        con.close();
-                    } catch (Exception e) {
-                        PrintWriter pw = response.getWriter();
-                        pw.println("<tr><td colspan='8'>Error: " + e.getMessage() + "</td></tr>");
-                    }
-                %>
+                    %>
+                </form>
             </div>
         </div>
     </div>
@@ -264,13 +276,15 @@
     <script src="../vendors/scripts/layout-settings.js"></script>
     <!-- Google Tag Manager (noscript) -->
     <noscript
-    ><iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS"
-            height="0"
-            width="0"
-            style="display: none; visibility: hidden"
-    ></iframe
-    ></noscript>
+    >
+        <iframe
+                src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS"
+                height="0"
+                width="0"
+                style="display: none; visibility: hidden"
+        ></iframe
+        >
+    </noscript>
     <!-- End Google Tag Manager (noscript) -->
 </div>
 </body>
