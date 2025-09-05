@@ -1,14 +1,13 @@
-<%@ page import="java.sql.DriverManager" %>
-<%@ page import="java.sql.Statement" %>
-<%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="p1.DBConnection" %>
 <!DOCTYPE html>
 <html>
 <head>
     <!-- Basic Page Info -->
     <meta charset="utf-8"/>
-    <title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
+    <title>Lilbrio - Bookstore </title>
+    <link rel="icon" type="image/png" href="../User/images/Logo.png">
 
     <style>
         /* Optionally, you can move these styles to an external CSS file for better organization */
@@ -69,23 +68,23 @@
 
     </style>
     <!-- Site favicon -->
-    <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="../vendors/images/apple-touch-icon.png"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="../vendors/images/favicon-32x32.png"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="../vendors/images/favicon-16x16.png"
-    />
+<%--    <link--%>
+<%--            rel="apple-touch-icon"--%>
+<%--            sizes="180x180"--%>
+<%--            href="../vendors/images/apple-touch-icon.png"--%>
+<%--    />--%>
+<%--    <link--%>
+<%--            rel="icon"--%>
+<%--            type="image/png"--%>
+<%--            sizes="32x32"--%>
+<%--            href="../vendors/images/favicon-32x32.png"--%>
+<%--    />--%>
+<%--    <link--%>
+<%--            rel="icon"--%>
+<%--            type="image/png"--%>
+<%--            sizes="16x16"--%>
+<%--            href="../vendors/images/favicon-16x16.png"--%>
+<%--    />--%>
 
     <!-- Mobile Specific Metas -->
     <meta
@@ -155,7 +154,7 @@
 </head>
 <body>
 
-<jsp:include page="HeaderSidebar.jsp" flush="true"></jsp:include>
+<jsp:include page="HeaderSideBar.jsp" flush="true"></jsp:include>
 
 <div class="main-container">
     <div class="pd-ltr-20 xs-pd-20-10">
@@ -186,8 +185,7 @@
                         int id=Integer.parseInt(request.getParameter("id"));
 
                         try {
-                            Class.forName("oracle.jdbc.driver.OracleDriver");
-                            java.sql.Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "system");
+                            Connection con= DBConnection.getConnection();
                             String sql = "SELECT * FROM BOOK WHERE BOOK_ID = ?"; // Adjust the query as needed
                             PreparedStatement pr=con.prepareStatement(sql);
                             pr.setInt(1, id); // Assuming bookId is passed as a request parameter
@@ -201,14 +199,17 @@
                                 int year = rs.getInt("YEAR_PUBLISHED");
                                 int qty = rs.getInt("QNTY");
                                 int available = rs.getInt("AVAILABLE_QNTY");
-                                byte[] imgBytes = rs.getBytes("IMAGE");
+                                byte[] imgBytes = rs.getBytes("BOOK_IMAGE");
                                 String base64Image = java.util.Base64.getEncoder().encodeToString(imgBytes);
-                                String imageSrc = "data:image/jpeg;base64," + base64Image;
+                                String BookImage = "data:image/jpeg;base64," + base64Image;
+                                byte[] imgBytes1 = rs.getBytes("AUTHOR_IMAGE");
+                                String base64Image1 = java.util.Base64.getEncoder().encodeToString(imgBytes1);
+                                String AuthorImage = "data:image/jpeg;base64," + base64Image1;
                     %>
                     <div class="row">
                         <div class="col-lg-3 col-md-12 col-sm-12 mt-3">
                             <div class="product-detail-desc pd-20 card-box height-100-p" style="height: 400px; display: flex; align-items: center; justify-content: center;">
-                                <img src="<%=imageSrc%>" alt="Book Image"
+                                <img src="<%=AuthorImage%>" alt="Book Image"
                                      style="max-height: 100%; max-width: 100%; object-fit: contain; border-radius: 10px;">
                             </div>
                         </div>
@@ -219,24 +220,44 @@
                                     <div class="demo p-4" style="background-image: url('https://i.makeagif.com/media/6-21-2021/Ml33kt.gif');border-radius: 10px;color: white;justify-content: center;background-repeat: no-repeat;
 											background-attachment: fixed;
 											background-size: cover; text-align: center; display: flex; flex-direction: column; align-items: center;">
-                                        <img class="profile-img" src="pic-1.jpg" alt="">
+                                        <img class="profile-img" src="<%=BookImage%>" alt="">
                                         <div>
                                             <h3 style="font-size: large; margin-top: 10px; color: white;"><%=author%></h3>
                                             <!-- <span>Published Year</span> -->
                                         </div>
                                     </div>
-                                    <div class="details mt-3 " id="overflow-hidden">
-                                        <h4 style="font-size: large; margin-top: 15px;">&#128073;Book Details</h4>
-                                        <p style="margin-top: 10px;">
-                                        <p>Title : <%=title%></p>
-                                        <p>Publisher :  <%=publisher%></p>
-                                        <p>Category : <%=category%></p>
-                                        <p>Published Year : <%=year%></p>
-                                        <p>Quentity : <%=qty%></p>
-                                        <p>Available Quentity : <%=available%></p>
-                                        </p>
-                                        <a href="facultyDetails.jsp" class="inline-btn">view profile</a>
+                                    <div class="details mt-3" id="overflow-hidden">
+                                        <h4 style="font-size: large; margin-top: 15px;">&#128073; Book Details</h4>
+
+                                        <ul class="list-group list-group-flush mt-2">
+                                            <li class="list-group-item">
+                                                <strong>Title:</strong> <%=title%>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <strong>Publisher:</strong> <%=publisher%>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <strong>Category:</strong>
+                                                <span class="badge badge-info"><%=category%></span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <strong>Published Year:</strong> <%=year%>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <strong>Quantity:</strong>
+                                                <span class="badge badge-secondary"><%=qty%></span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <strong>Available:</strong>
+                                                <% if (available > 0) { %>
+                                                <span class="badge badge-success"><%=available%> In Stock</span>
+                                                <% } else { %>
+                                                <span class="badge badge-danger">Out of Stock</span>
+                                                <% } %>
+                                            </li>
+                                        </ul>
                                     </div>
+
                                 </div>
                             </div>
                         </div>

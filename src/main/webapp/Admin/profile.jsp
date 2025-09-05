@@ -138,6 +138,7 @@
                             String fname = rs.getString("FNAME");
                             String lname = rs.getString("LNAME");
                             String fullName = fname + " " + lname;
+                            String gender = rs.getString("GENDER");
                             String email = rs.getString("EMAIL");
                             String mobile = rs.getString("MOBILE_NO");
                             int roleId = rs.getInt("ROLE_ID");
@@ -159,11 +160,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="<%=imageSrc%>" alt="Admin"
-                                         class="rounded-circle" width="200">
-                                    <div class="mt-3">
-                                        <h4><%=fullName%></h4>
-<%--                                        <p class="text-muted font-size-sm mt-3">Bay Area, San Francisco, CA</p>--%>
+                                    <div style="width: 250px; height: 300px; overflow: hidden; border-radius: 50%; margin: auto;">
+                                        <img src="<%=imageSrc%>" alt="Profile"
+                                             style="width: 100%; height: 100%; object-fit: cover;">
                                     </div>
                                 </div>
                             </div>
@@ -172,6 +171,33 @@
                     <div class="col-md-8">
                         <div class="card mb-3">
                             <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">First Name</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <%=fname%>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Last Name</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <%=lname%>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Gender</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <%=gender%>
+                                    </div>
+                                </div>
+                                <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">Email</h6>

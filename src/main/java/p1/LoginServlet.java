@@ -3,16 +3,11 @@ package p1;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.*;
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024 * 2,
@@ -32,11 +27,9 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection con = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@localhost:1521:XE", "system", "system");
+            Connection con = DBConnection.getConnection();
 
-            String sql = "SELECT u.USER_ID, u.IMAGE, u.FNAME, u.LNAME, r.ROLE_NAME " +
+            String sql = "SELECT u.USER_ID, u.USER_IMAGE, u.FNAME, u.LNAME,u.ROLE_ID, r.ROLE_NAME " +
                     "FROM USERS u JOIN ROLE r ON u.ROLE_ID = r.ROLE_ID " +
                     "WHERE u.EMAIL = ? AND u.PASSWORD = ?";
 
@@ -47,22 +40,26 @@ public class LoginServlet extends HttpServlet {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
+                int roleId = rs.getInt("ROLE_ID");
                 String role = rs.getString("ROLE_NAME").toLowerCase();
                 String fname = rs.getString("FNAME");
-
-                byte[] imgBytes = rs.getBytes("IMAGE");
+                byte[] imgBytes = rs.getBytes("USER_IMAGE");
+                int userId = rs.getInt("USER_ID");
                 String imageSrc;
 
                 if (imgBytes != null && imgBytes.length > 0) {
                     String base64Image = java.util.Base64.getEncoder().encodeToString(imgBytes);
                     imageSrc = "data:image/jpeg;base64," + base64Image;
                 } else {
-                    imageSrc = request.getContextPath() + "/vendors/images/default-avatar.png"; // corrected fallback path
+                    imageSrc = request.getContextPath() + "../webapp/User/pic-3.jpg"; // corrected fallback path
                 }
 
                 HttpSession session = request.getSession();
+                session.setAttribute("userId",userId);
                 session.setAttribute("userName", fname);
                 session.setAttribute("image", imageSrc);
+                session.setAttribute("role", role);
+                session.setAttribute("roleId", roleId);
 
                 String contextPath = request.getContextPath();
 
@@ -74,7 +71,7 @@ public class LoginServlet extends HttpServlet {
                         response.sendRedirect(contextPath + "/Librarian/index.jsp");
                         break;
                     case "student":
-                        response.sendRedirect(contextPath + "/index.jsp");
+                        response.sendRedirect(contextPath + "/User/index.jsp");
                         break;
                     default:
                         out.println("<h3 style='color:red;'>Unknown role: " + role + "</h3>");

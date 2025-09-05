@@ -1,7 +1,9 @@
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
-<%@ page import="java.io.PrintWriter" %><%--
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="p1.DBConnection" %><%--
   Created by IntelliJ IDEA.
   User: lakha
   Date: 17-06-2025
@@ -102,7 +104,7 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
                         <div class="title">
-                            <h4>Chat</h4>
+                            <h4>Add Librarian</h4>
                         </div>
                         <nav aria-label="breadcrumb" role="navigation">
                             <ol class="breadcrumb">
@@ -110,10 +112,17 @@
                                     <a href="index.jsp">Home</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    Chat
+                                    Add Librarian
                                 </li>
                             </ol>
                         </nav>
+                    </div>
+                    <div class="col-md-6 col-sm-12 text-right">
+                        <div>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCourse">
+                                Add Librarian
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -135,9 +144,8 @@
                     <%
 
                         try {
-                            Class.forName("oracle.jdbc.driver.OracleDriver");
-                            java.sql.Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "system");
-                            Statement st=con.createStatement();
+                            Connection con= DBConnection.getConnection();
+                            Statement st = con.createStatement();
                             String sql = "SELECT * FROM users where ROLE_ID=2";
                             ResultSet rs = st.executeQuery(sql);
 
@@ -145,17 +153,17 @@
                                 int userId = rs.getInt("USER_ID");
                                 String fullName = rs.getString("FNAME") + " " + rs.getString("LNAME");
                                 String email = rs.getString("EMAIL");
-                                String password=rs.getString("password");
+                                String password = rs.getString("password");
                                 String mobile = rs.getString("MOBILE_NO");
                                 String gender = rs.getString("GENDER");
                                 int roleId = rs.getInt("ROLE_ID");
                                 String address = rs.getString("ADDRESS");
-                                byte[] imgBytes = rs.getBytes("IMAGE");
+                                byte[] imgBytes = rs.getBytes("USER_IMAGE");
                                 String base64Image = "";
                                 if (imgBytes != null) {
                                     base64Image = java.util.Base64.getEncoder().encodeToString(imgBytes);
                                 }
-                                String imageSrc = "data:image/jpeg;base64," + base64Image;
+                                String UserImage = "data:image/jpeg;base64," + base64Image;
                                 java.sql.Date createdAt = rs.getDate("CREATED_AT");
 
                     %>
@@ -164,7 +172,7 @@
                             <div class="name-avatar d-flex align-items-center">
                                 <div class="avatar mr-2 flex-shrink-0">
                                     <img
-                                            src="<%=imageSrc%>"
+                                            src="<%=UserImage%>"
                                             class="border-radius-100 shadow"
                                             width="40"
                                             height="40"
@@ -172,15 +180,21 @@
                                     />
                                 </div>
                                 <div class="txt">
-                                    <div class="weight-600"><%=fullName%> </div>
+                                    <div class="weight-600"><%=fullName%>
+                                    </div>
                                 </div>
                             </div>
                         </td>
-                        <td><%=email%></td>
-                        <td><%=password%></td>
-                        <td><%=mobile%> </td>
-                        <td><%=address%></td>
-                        <td><%=createdAt%></td>
+                        <td><%=email%>
+                        </td>
+                        <td><%=password%>
+                        </td>
+                        <td><%=mobile%>
+                        </td>
+                        <td><%=address%>
+                        </td>
+                        <td><%=createdAt%>
+                        </td>
                         <!-- <td>
                             <span
                                 class="badge badge-pill"
@@ -192,10 +206,11 @@
                         <td>
                             <div class="table-actions">
 
-                                <a href="?id=<%=userId%>" class="btn" data-color="#e95959"
-                                   data-toggle="modal" data-target="#deleteModal"
-                                ><i class="icon-copy dw dw-delete-3"></i
-                                ></a>
+                                <a href="#" class="btn deleteBtn"
+                                   data-id="<%=userId%>"
+                                   data-toggle="modal" data-target="#deleteModal">
+                                    <i class="icon-copy dw dw-delete-3"></i>
+                                </a>
                             </div>
                         </td>
                     </tr>
@@ -218,6 +233,93 @@
 </div>
 <!-- welcome modal start -->
 
+<!-- Add modal start -->
+<div
+        class="modal fade bs-example-modal-lg"
+        id="addCourse"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myLargeModalLabel"
+        aria-hidden="true"
+>
+    <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myLargeModalLabel">
+                    Add Librarian
+                </h4>
+                <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-hidden="true"
+                >
+                    x
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="register-form" action="../Register" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="source" value="admin"/>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="firstname" class="form-control" placeholder="First Name *"
+                                       required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="lastname" class="form-control" placeholder="Last Name *"
+                                       required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="mobile" minlength="10" maxlength="10" class="form-control"
+                                       placeholder="Your Phone *" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="address" class="form-control" placeholder="Your Address *"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label class="radio inline">
+                                    <input type="radio" name="gender" value="male" checked>
+                                    <span> Male </span>
+                                </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="gender" value="female">
+                                    <span>Female </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" placeholder="Your Email *"
+                                       required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" class="form-control" placeholder="Password *"
+                                       required/>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" name="role" required>
+                                    <option class="hidden" selected disabled>Role</option>
+                                    <option value="2">Librarian</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="file" name="userimage" class="form-control" required/>
+                            </div>
+                            <div class="d-flex" style="gap: 20px;">
+                                <input type="submit" value="Add" class="btn btn-primary w-75"/>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Add modal start -->
+
+
 <!-- ============(Delete)=========================================== -->
 
 <div class="modal fade bs-example-modal-lg" id="deleteModal">
@@ -228,7 +330,7 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <form action="DeleteServlet" method="post">
+                <form action="../DeleteUserServlet" method="post">
                     <p>Are you sure you want to delete this Librarian ?</p>
                     <input type="hidden" name="id" id="deleteId">
                     <button type="submit" class="btn btn-danger">Delete</button>
@@ -247,6 +349,20 @@
 
 <!-- welcome modal end -->
 <!-- js -->
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const deleteButtons = document.querySelectorAll('.deleteBtn');
+        const deleteIdInput = document.getElementById('deleteId');
+
+        deleteButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+        const userId = this.getAttribute('data-id');
+        deleteIdInput.value = userId;
+    });
+    });
+    });
+</script>
+
 <script src="../vendors/scripts/core.js"></script>
 <script src="../vendors/scripts/script.min.js"></script>
 <script src="../vendors/scripts/process.js"></script>

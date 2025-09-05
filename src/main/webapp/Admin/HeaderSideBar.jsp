@@ -10,17 +10,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Lilbrio - Bookstore </title>
+    <link rel="icon" type="image/png" href="../User/images/Logo.png">
 </head>
 <body>
 
 <div class="pre-loader">
     <div class="pre-loader-box">
         <div class="loader-logo">
-            <img src="../vendors/images/deskapp-logo.svg" alt=""/>
+            <img src="../User/images/Logo.png" alt=""/>
         </div>
         <div class="loader-progress" id="progress_div">
-            <div class="bar" id="bar1"></div>
+            <div class="bar" id="bar1" style="background-color: #ff6b6b;"></div>
         </div>
         <div class="percent" id="percent1">0%</div>
         <div class="loading-text">Loading...</div>
@@ -31,13 +32,12 @@
     HttpSession session1 = request.getSession(false);
     String name = null;
     String image = null;
+    int userId;
 
-    if (session != null) {
+    if (session1 != null) {
+        userId = (int) session1.getAttribute("userId");
         name = (String) session1.getAttribute("userName");
         image = (String) session1.getAttribute("image");
-
-        // Optional: Debug
-        // out.println("Session: name = " + name + ", image = " + image + "<br>");
     }
 %>
 
@@ -59,7 +59,7 @@
                     <span class="user-name"><%= name %></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                    <a class="dropdown-item" href="profile.jsp">
+                    <a class="dropdown-item" href="aProfile.jsp">
                         <i class="dw dw-user1"></i> Profile
                     </a>
                     <a class="dropdown-item" href="<%= request.getContextPath() %>/LogoutServlet">
@@ -102,9 +102,9 @@
 <div class="left-side-bar">
     <div class="brand-logo">
         <a href="index.jsp">
-            <img src="../vendors/images/deskapp-logo.svg" alt="" class="dark-logo"/>
+            <img src="../vendors/images/Logoo.png" alt="" class="dark-logo"/>
             <img
-                    src="../vendors/images/deskapp-logo-white.svg"
+                    src="../vendors/images/Logoo.png"
                     alt=""
                     class="light-logo"
             />
@@ -131,7 +131,7 @@
                         <li><a href="ManageLibrarian.jsp">Manage Librarian</a></li>
                     </ul>
                     <ul class="submenu">
-                        <li><a href="faculty.jsp">Librarianes List</a></li>
+                        <li><a href="aLibrarian.jsp">Librarianes List</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -140,20 +140,20 @@
                                 ><span class="mtext">Books</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="addCourse.jsp">Add Books</a></li>
+                        <li><a href="aAddBooks.jsp">Add Books</a></li>
                     </ul>
                     <ul class="submenu">
-                        <li><a href="course.jsp">Books List</a></li>
+                        <li><a href="aBooksList.jsp">Books List</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="studentQuery.jsp" class="dropdown-toggle no-arrow">
+                    <a href="aStudents.jsp" class="dropdown-toggle no-arrow">
                         <span class="micon bi bi-mortarboard-fill"></span>
                         <span class="mtext">Students</span>
                     </a>
                 </li>
                 <li>
-                    <a href="profile.jsp" class="dropdown-toggle no-arrow">
+                    <a href="aProfile.jsp" class="dropdown-toggle no-arrow">
                         <span class="micon bi-person-circle"></span>
                         <span class="mtext">Profile</span>
                     </a>

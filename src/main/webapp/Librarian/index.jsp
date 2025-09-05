@@ -1,4 +1,10 @@
-<%--
+<%@ page import="java.text.DecimalFormat" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="p1.DBConnection" %><%--
   Created by IntelliJ IDEA.
   User: lakha
   Date: 19-06-2025
@@ -11,26 +17,27 @@
 <head>
     <!-- Basic Page Info -->
     <meta charset="utf-8"/>
-    <title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
+    <title>Lilbrio - Bookstore </title>
+    <link rel="icon" type="image/png" href="../User/images/Logo.png">
 
     <!-- Site favicon -->
-    <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="../vendors/images/apple-touch-icon.png"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="../vendors/images/favicon-32x32.png"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="../vendors/images/favicon-16x16.png"
-    />
+<%--    <link--%>
+<%--            rel="apple-touch-icon"--%>
+<%--            sizes="180x180"--%>
+<%--            href="../vendors/images/apple-touch-icon.png"--%>
+<%--    />--%>
+<%--    <link--%>
+<%--            rel="icon"--%>
+<%--            type="image/png"--%>
+<%--            sizes="32x32"--%>
+<%--            href="../vendors/images/favicon-32x32.png"--%>
+<%--    />--%>
+<%--    <link--%>
+<%--            rel="icon"--%>
+<%--            type="image/png"--%>
+<%--            sizes="16x16"--%>
+<%--            href="../vendors/images/favicon-16x16.png"--%>
+<%--    />--%>
 
     <!-- Mobile Specific Metas -->
     <meta
@@ -100,7 +107,47 @@
 </head>
 <body>
 
-<jsp:include page="HeaderSidebar.jsp" flush="true"></jsp:include>
+<jsp:include page="HeaderSideBar.jsp" flush="true"></jsp:include>
+
+<%
+    PrintWriter pw=response.getWriter();
+    int totalBooks = 0;
+    int issuedBooks = 0;
+    int returnedBooks = 0;
+    double totalFines = 0.0;
+    DecimalFormat df = new DecimalFormat("#,##0.00");
+
+    try {
+        Connection con= DBConnection.getConnection();
+
+        Statement stmt = con.createStatement();
+
+        // Total Books
+        ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS TOTAL_BOOKS FROM BOOK");
+        if (rs1.next()) totalBooks = rs1.getInt("TOTAL_BOOKS");
+        rs1.close();
+
+        // Issued Books
+        ResultSet rs2 = stmt.executeQuery("SELECT COUNT(*) AS ISSUED_BOOKS FROM ISSUE_BOOK WHERE STATUS = 'Issued'");
+        if (rs2.next()) issuedBooks = rs2.getInt("ISSUED_BOOKS");
+        rs2.close();
+
+        // Returned Books
+        ResultSet rs3 = stmt.executeQuery("SELECT COUNT(*) AS RETURNED_BOOKS FROM ISSUE_BOOK WHERE STATUS = 'Returned'");
+        if (rs3.next()) returnedBooks = rs3.getInt("RETURNED_BOOKS");
+        rs3.close();
+
+        // Total Fines
+        ResultSet rs4 = stmt.executeQuery("SELECT NVL(SUM(AMOUNT), 0) AS TOTAL_FINE FROM FINE");
+        if (rs4.next()) totalFines = rs4.getDouble("TOTAL_FINE");
+        rs4.close();
+
+        stmt.close();
+        con.close();
+    } catch (Exception e) {
+        pw.println("Error fetching dashboard data: " + e.getMessage());
+    }
+%>
 
 <div class="main-container">
     <div class="xs-pd-20-10 pd-ltr-20">
@@ -109,14 +156,13 @@
         </div>
 
         <div class="row pb-10">
+            <!-- Total Books -->
             <div class="col-xl-3 col-lg-3 col-md-6 mb-20">
                 <div class="card-box height-100-p widget-style3">
                     <div class="d-flex flex-wrap">
                         <div class="widget-data">
-                            <div class="weight-700 font-24 text-dark">75</div>
-                            <div class="font-14 text-secondary weight-500">
-                                Total Books
-                            </div>
+                            <div class="weight-700 font-24 text-dark"><%= totalBooks %></div>
+                            <div class="font-14 text-secondary weight-500">Total Books</div>
                         </div>
                         <div class="widget-icon">
                             <div class="icon" data-color="#00eccf">
@@ -126,14 +172,14 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Issued Books -->
             <div class="col-xl-3 col-lg-3 col-md-6 mb-20">
                 <div class="card-box height-100-p widget-style3">
                     <div class="d-flex flex-wrap">
                         <div class="widget-data">
-                            <div class="weight-700 font-24 text-dark">124,551</div>
-                            <div class="font-14 text-secondary weight-500">
-                                Issued Books
-                            </div>
+                            <div class="weight-700 font-24 text-dark"><%= issuedBooks %></div>
+                            <div class="font-14 text-secondary weight-500">Issued Books</div>
                         </div>
                         <div class="widget-icon">
                             <div class="icon" data-color="#ff5b5b">
@@ -143,31 +189,30 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Returned Books -->
             <div class="col-xl-3 col-lg-3 col-md-6 mb-20">
                 <div class="card-box height-100-p widget-style3">
                     <div class="d-flex flex-wrap">
                         <div class="widget-data">
-                            <div class="weight-700 font-24 text-dark">400+</div>
-                            <div class="font-14 text-secondary weight-500">
-                                Return Books
-                            </div>
+                            <div class="weight-700 font-24 text-dark"><%= returnedBooks %></div>
+                            <div class="font-14 text-secondary weight-500">Returned Books</div>
                         </div>
                         <div class="widget-icon">
                             <div class="icon">
-                                <i
-                                        class="icon-copy ti-import"
-                                        aria-hidden="true"
-                                ></i>
+                                <i class="icon-copy ti-import" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Total Fines -->
             <div class="col-xl-3 col-lg-3 col-md-6 mb-20">
                 <div class="card-box height-100-p widget-style3">
                     <div class="d-flex flex-wrap">
                         <div class="widget-data">
-                            <div class="weight-700 font-24 text-dark">$50,000</div>
+                            <div class="weight-700 font-24 text-dark">₹<%= df.format(totalFines) %></div>
                             <div class="font-14 text-secondary weight-500">Total Fines</div>
                         </div>
                         <div class="widget-icon">

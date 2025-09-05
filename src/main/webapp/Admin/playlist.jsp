@@ -1,8 +1,6 @@
-<%@ page import="java.sql.DriverManager" %>
-<%@ page import="java.sql.Statement" %>
-<%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="p1.DBConnection" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -186,11 +184,10 @@
                         int id=Integer.parseInt(request.getParameter("id"));
 
                         try {
-                            Class.forName("oracle.jdbc.driver.OracleDriver");
-                            java.sql.Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "system");
-                            String sql = "SELECT * FROM BOOK WHERE BOOK_ID = ?"; // Adjust the query as needed
+                            Connection con= DBConnection.getConnection();
+                            String sql = "SELECT * FROM BOOK WHERE BOOK_ID = ?";
                             PreparedStatement pr=con.prepareStatement(sql);
-                            pr.setInt(1, id); // Assuming bookId is passed as a request parameter
+                            pr.setInt(1, id);
                             ResultSet rs = pr.executeQuery();
                             while (rs.next()) {
                                 int bookId = rs.getInt("BOOK_ID");
@@ -201,14 +198,21 @@
                                 int year = rs.getInt("YEAR_PUBLISHED");
                                 int qty = rs.getInt("QNTY");
                                 int available = rs.getInt("AVAILABLE_QNTY");
-                                byte[] imgBytes = rs.getBytes("IMAGE");
+                                byte[] imgBytes = rs.getBytes("BOOK_IMAGE");
                                 String base64Image = java.util.Base64.getEncoder().encodeToString(imgBytes);
-                                String imageSrc = "data:image/jpeg;base64," + base64Image;
+                                String BookImage = "data:image/jpeg;base64," + base64Image;
+                                byte[] imgBytes1 = rs.getBytes("AUTHOR_IMAGE");
+                                String base64Image1 = "";
+                                if (imgBytes1 != null) {
+                                    base64Image1 = java.util.Base64.getEncoder().encodeToString(imgBytes1);
+                                }
+                                String AuthorImage = "data:image/jpeg;base64," + base64Image1;
+
                     %>
                     <div class="row">
                         <div class="col-lg-3 col-md-12 col-sm-12 mt-3">
                             <div class="product-detail-desc pd-20 card-box height-100-p" style="height: 400px; display: flex; align-items: center; justify-content: center;">
-                                <img src="<%=imageSrc%>" alt="Book Image"
+                                <img src="<%=AuthorImage%>" alt="Book Image"
                                      style="max-height: 100%; max-width: 100%; object-fit: contain; border-radius: 10px;">
                             </div>
                         </div>
@@ -219,7 +223,7 @@
                                     <div class="demo p-4" style="background-image: url('https://i.makeagif.com/media/6-21-2021/Ml33kt.gif');border-radius: 10px;color: white;justify-content: center;background-repeat: no-repeat;
 											background-attachment: fixed;
 											background-size: cover; text-align: center; display: flex; flex-direction: column; align-items: center;">
-                                        <img class="profile-img" src="pic-1.jpg" alt="">
+                                        <img class="profile-img" src="<%=BookImage%>" alt="">
                                         <div>
                                             <h3 style="font-size: large; margin-top: 10px; color: white;"><%=author%></h3>
                                             <!-- <span>Published Year</span> -->
@@ -235,7 +239,7 @@
                                         <p>Quentity : <%=qty%></p>
                                         <p>Available Quentity : <%=available%></p>
                                         </p>
-                                        <a href="facultyDetails.jsp" class="inline-btn">view profile</a>
+                                        <a href="aLibrarianDetails.jsp" class="inline-btn">view profile</a>
                                     </div>
                                 </div>
                             </div>

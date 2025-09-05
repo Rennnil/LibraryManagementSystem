@@ -14,13 +14,22 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        // Invalidate session to log out
         HttpSession session = request.getSession(false);
+
+        String role = null;
         if (session != null) {
+            // Get the role before invalidating
+            role = (String) session.getAttribute("role");
             session.invalidate();
         }
-//        String contextPath = request.getContextPath();
-        response.sendRedirect("Login.jsp");
+
+        String contextPath = request.getContextPath();
+
+        if ("student".equalsIgnoreCase(role)) {
+            response.sendRedirect(contextPath + "/User/index.jsp");
+        } else {
+            response.sendRedirect(contextPath + "/Login.jsp");
+        }
 
     }
 }

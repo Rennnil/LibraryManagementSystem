@@ -2,14 +2,11 @@ package p1;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.*;
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 
 @WebServlet(name = "DeleteBook", value = "/DeleteBook")
 public class DeleteBook extends HttpServlet {
@@ -22,10 +19,7 @@ public class DeleteBook extends HttpServlet {
 
         try {
             int id = Integer.parseInt(request.getParameter("id")); // not "deleteId"
-
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection con = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@localhost:1521:XE", "system", "system");
+            Connection con= DBConnection.getConnection();
 
             String sql = "DELETE FROM BOOK WHERE BOOK_ID = ?";
             PreparedStatement pr = con.prepareStatement(sql);

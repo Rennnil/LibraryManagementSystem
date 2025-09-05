@@ -1,3 +1,9 @@
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.text.DecimalFormat" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.DriverManager" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -96,73 +102,162 @@
 
 <jsp:include page="HeaderSideBar.jsp" flush="true" ></jsp:include>
 
+<%
+    PrintWriter pw = response.getWriter();
+    int totalBooks = 0;
+    int issuedBooks = 0;
+    int returnedBooks = 0;
+    double totalFines = 0.0;
+    int totalLibrarians = 0;
+    int totalStudents = 0;
+
+    DecimalFormat df = new DecimalFormat("#,##0.00");
+
+    try {
+        Class.forName("oracle.jdbc.driver.OracleDriver");
+        Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "system");
+        Statement stmt = con.createStatement();
+
+        // Total Books
+        ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS TOTAL_BOOKS FROM BOOK");
+        if (rs1.next()) totalBooks = rs1.getInt("TOTAL_BOOKS");
+        rs1.close();
+
+        // Issued Books
+        ResultSet rs2 = stmt.executeQuery("SELECT COUNT(*) AS ISSUED_BOOKS FROM ISSUE_BOOK WHERE STATUS = 'Issued'");
+        if (rs2.next()) issuedBooks = rs2.getInt("ISSUED_BOOKS");
+        rs2.close();
+
+        // Returned Books
+        ResultSet rs3 = stmt.executeQuery("SELECT COUNT(*) AS RETURNED_BOOKS FROM ISSUE_BOOK WHERE STATUS = 'Returned'");
+        if (rs3.next()) returnedBooks = rs3.getInt("RETURNED_BOOKS");
+        rs3.close();
+
+        // Total Fines
+        ResultSet rs4 = stmt.executeQuery("SELECT NVL(SUM(AMOUNT), 0) AS TOTAL_FINE FROM FINE");
+        if (rs4.next()) totalFines = rs4.getDouble("TOTAL_FINE");
+        rs4.close();
+
+        // Total Librarians (ROLE_ID = 2)
+        ResultSet rs5 = stmt.executeQuery("SELECT COUNT(*) AS TOTAL_LIB FROM USERS WHERE ROLE_ID = 2");
+        if (rs5.next()) totalLibrarians = rs5.getInt("TOTAL_LIB");
+        rs5.close();
+
+        // Total Students (ROLE_ID = 3)
+        ResultSet rs6 = stmt.executeQuery("SELECT COUNT(*) AS TOTAL_STU FROM USERS WHERE ROLE_ID = 3");
+        if (rs6.next()) totalStudents = rs6.getInt("TOTAL_STU");
+        rs6.close();
+
+        stmt.close();
+        con.close();
+    } catch (Exception e) {
+        pw.println("Error fetching dashboard data: " + e.getMessage());
+    }
+%>
+
 <div class="main-container">
     <div class="xs-pd-20-10 pd-ltr-20">
         <div class="title pb-20">
             <h2 class="h3 mb-0">Library Overview</h2>
         </div>
 
+        <!-- Row 1 -->
         <div class="row pb-10">
-            <div class="col-xl-3 col-lg-3 col-md-6 mb-20">
+            <!-- Total Librarians -->
+            <div class="col-xl-4 col-lg-4 col-md-6 mb-20">
                 <div class="card-box height-100-p widget-style3">
                     <div class="d-flex flex-wrap">
                         <div class="widget-data">
-                            <div class="weight-700 font-24 text-dark">75</div>
-                            <div class="font-14 text-secondary weight-500">
-                                Appointment
+                            <div class="weight-700 font-24 text-dark"><%= totalLibrarians %></div>
+                            <div class="font-14 text-secondary weight-500">Total Librarians</div>
+                        </div>
+                        <div class="widget-icon">
+                            <div class="icon" data-color="#1b84f5">
+                                <i class="icon-copy fa fa-user-circle-o" aria-hidden="true"></i>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total Students -->
+            <div class="col-xl-4 col-lg-4 col-md-6 mb-20">
+                <div class="card-box height-100-p widget-style3">
+                    <div class="d-flex flex-wrap">
+                        <div class="widget-data">
+                            <div class="weight-700 font-24 text-dark"><%= totalStudents %></div>
+                            <div class="font-14 text-secondary weight-500">Total Students</div>
+                        </div>
+                        <div class="widget-icon">
+                            <div class="icon" data-color="#f59e0b">
+                                <i class="icon-copy fa fa-users" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total Books -->
+            <div class="col-xl-4 col-lg-4 col-md-6 mb-20">
+                <div class="card-box height-100-p widget-style3">
+                    <div class="d-flex flex-wrap">
+                        <div class="widget-data">
+                            <div class="weight-700 font-24 text-dark"><%= totalBooks %></div>
+                            <div class="font-14 text-secondary weight-500">Total Books</div>
                         </div>
                         <div class="widget-icon">
                             <div class="icon" data-color="#00eccf">
-                                <i class="icon-copy dw dw-calendar1"></i>
+                                <i class="icon-copy ti-book"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 mb-20">
+        </div>
+
+        <!-- Row 2 -->
+        <div class="row pb-10">
+            <!-- Issued Books -->
+            <div class="col-xl-4 col-lg-4 col-md-6 mb-20">
                 <div class="card-box height-100-p widget-style3">
                     <div class="d-flex flex-wrap">
                         <div class="widget-data">
-                            <div class="weight-700 font-24 text-dark">124,551</div>
-                            <div class="font-14 text-secondary weight-500">
-                                Total Patient
-                            </div>
+                            <div class="weight-700 font-24 text-dark"><%= issuedBooks %></div>
+                            <div class="font-14 text-secondary weight-500">Issued Books</div>
                         </div>
                         <div class="widget-icon">
                             <div class="icon" data-color="#ff5b5b">
-                                <span class="icon-copy ti-heart"></span>
+                                <span class="icon-copy ti-export"></span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 mb-20">
+
+            <!-- Returned Books -->
+            <div class="col-xl-4 col-lg-4 col-md-6 mb-20">
                 <div class="card-box height-100-p widget-style3">
                     <div class="d-flex flex-wrap">
                         <div class="widget-data">
-                            <div class="weight-700 font-24 text-dark">400+</div>
-                            <div class="font-14 text-secondary weight-500">
-                                Total Doctor
-                            </div>
+                            <div class="weight-700 font-24 text-dark"><%= returnedBooks %></div>
+                            <div class="font-14 text-secondary weight-500">Returned Books</div>
                         </div>
                         <div class="widget-icon">
                             <div class="icon">
-                                <i
-                                        class="icon-copy fa fa-stethoscope"
-                                        aria-hidden="true"
-                                ></i>
+                                <i class="icon-copy ti-import" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 mb-20">
+
+            <!-- Total Fines -->
+            <div class="col-xl-4 col-lg-4 col-md-6 mb-20">
                 <div class="card-box height-100-p widget-style3">
                     <div class="d-flex flex-wrap">
                         <div class="widget-data">
-                            <div class="weight-700 font-24 text-dark">$50,000</div>
-                            <div class="font-14 text-secondary weight-500">Earning</div>
+                            <div class="weight-700 font-24 text-dark">₹<%= df.format(totalFines) %></div>
+                            <div class="font-14 text-secondary weight-500">Total Fines</div>
                         </div>
                         <div class="widget-icon">
                             <div class="icon" data-color="#09cc06">
@@ -173,8 +268,10 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
+
 <!-- welcome modal start -->
 
 

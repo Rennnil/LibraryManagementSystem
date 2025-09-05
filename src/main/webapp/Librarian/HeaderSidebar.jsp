@@ -8,7 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Lilbrio - Bookstore </title>
+    <link rel="icon" type="image/png" href="../User/images/Logo.png">
 </head>
 <body>
 
@@ -17,23 +18,22 @@
     HttpSession session1 = request.getSession(false);
     String name = null;
     String image = null;
-
+    int userId;
     if (session != null) {
+        userId = (int)session1.getAttribute("userId");
         name = (String) session1.getAttribute("userName");
         image = (String) session1.getAttribute("image");
 
-        // Optional: Debug
-        // out.println("Session: name = " + name + ", image = " + image + "<br>");
     }
 %>
 
 <div class="pre-loader">
     <div class="pre-loader-box">
         <div class="loader-logo">
-            <img src="../vendors/images/deskapp-logo.svg" alt=""/>
+            <img src="../User/images/Logo.png" alt=""/>
         </div>
         <div class="loader-progress" id="progress_div">
-            <div class="bar" id="bar1"></div>
+            <div class="bar" id="bar1" style="background-color: #ff6b6b;"></div>
         </div>
         <div class="percent" id="percent1">0%</div>
         <div class="loading-text">Loading...</div>
@@ -101,9 +101,9 @@
 <div class="left-side-bar">
     <div class="brand-logo">
         <a href="index.jsp">
-            <img src="../vendors/images/deskapp-logo.svg" alt="" class="dark-logo"/>
+            <img src="../vendors/images/Logoo.png" alt="" class="dark-logo"/>
             <img
-                    src="../vendors/images/deskapp-logo-white.svg"
+                    src="../vendors/images/Logoo.png"
                     alt=""
                     class="light-logo"
             />
@@ -133,12 +133,12 @@
                         <li><a href="BooksList.jsp">Books List</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="Students.jsp" class="dropdown-toggle no-arrow">
-                        <span class="micon bi bi-people-fill"></span>
-                        <span class="mtext">Students</span>
-                    </a>
-                </li>
+<%--                <li>--%>
+<%--                    <a href="Students.jsp" class="dropdown-toggle no-arrow">--%>
+<%--                        <span class="micon bi bi-people-fill"></span>--%>
+<%--                        <span class="mtext">Students</span>--%>
+<%--                    </a>--%>
+<%--                </li>--%>
                 <li>
                     <a href="IssuedBook.jsp" class="dropdown-toggle no-arrow">
                         <span class="micon bi bi-book-half"></span>

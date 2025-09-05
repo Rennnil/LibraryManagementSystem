@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Preloader</title>
+    <style>
+        /* Fullscreen Overlay */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        /* Book */
+        .book {
+            position: relative;
+            width: 120px;
+            height: 80px;
+            perspective: 1000px;
+        }
+
+        .cover {
+            width: 100%;
+            height: 100%;
+            background: #d32f2f;
+            position: absolute;
+            transform-origin: left;
+            animation: openClose 2s infinite;
+            border-radius: 4px;
+        }
+
+        .page {
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            position: absolute;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .page::before,
+        .page::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: #fdfdfd;
+        }
+
+        .page::before {
+            left: 0;
+            border-right: 1px solid #ddd;
+        }
+
+        .page::after {
+            right: 0;
+            border-left: 1px solid #ddd;
+        }
+
+        /* Animation */
+        @keyframes openClose {
+            0% { transform: rotateY(0deg); }
+            50% { transform: rotateY(-160deg); }
+            100% { transform: rotateY(0deg); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+    <div class="book">
+        <div class="page"></div>
+        <div class="cover"></div>
+    </div>
+</div>
+
+<!-- Your Page Content -->
+<div style="display:none;" id="mainContent">
+    <h1 style="text-align:center; margin-top:100px;">📚 Welcome to Library Management System</h1>
+</div>
+
+<script>
+    // Hide preloader after page load
+    window.addEventListener("load", function() {
+        let preloader = document.getElementById("preloader");
+        let content = document.getElementById("mainContent");
+        preloader.style.display = "none";
+        content.style.display = "block";
+    });
+</script>
+
+</body>
+</html>

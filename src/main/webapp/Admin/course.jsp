@@ -321,22 +321,25 @@
                                 while (rs.next()) {
                                     int bookId = rs.getInt("BOOK_ID");
                                     String title = rs.getString("TITLE");
-                                    String author = rs.getString("AUTHOR");
                                     String publisher = rs.getString("PUBLISHER");
-                                    String category = rs.getString("CATEGORY");
                                     int year = rs.getInt("YEAR_PUBLISHED");
-                                    int qty = rs.getInt("QNTY");
-                                    int available = rs.getInt("AVAILABLE_QNTY");
                                     byte[] imgBytes = rs.getBytes("IMAGE");
                                     String base64Image = java.util.Base64.getEncoder().encodeToString(imgBytes);
                                     String imageSrc = "data:image/jpeg;base64," + base64Image;
+                                    byte[] imgBytes1 = rs.getBytes("AUTHOR_IMAGE");
+                                    String base64Image1 = "";
+                                    if (imgBytes1 != null) {
+                                        base64Image1 = java.util.Base64.getEncoder().encodeToString(imgBytes1);
+                                    }
+                                    String imageSrc1 = "data:image/jpeg;base64," + base64Image1;
+
                         %>
                         <a href="playlist.jsp?id=<%=bookId%>" class="ag-courses_item">
                             <div class="ag-courses_item">
                                 <div class="course-img-cover">
-                                    <img class="course-img" src="<%=imageSrc%>" alt=""/>
+                                    <img class="course-img" src="<%=imageSrc1%>" alt=""/>
                                     <div class="fac-img-cover">
-                                        <img class="fac-img" src="pic-1.jpg" alt=""/>
+                                        <img class="fac-img" src="<%=imageSrc%>" alt=""/>
                                     </div>
                                 </div>
                                 <div class="ag-courses-item_link">

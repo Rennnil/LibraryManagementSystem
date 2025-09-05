@@ -1,6 +1,8 @@
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="java.sql.*" %>
-<%@ page import="java.util.Base64" %><%--
+<%@ page import="java.util.Base64" %>
+<%@ page import="p1.DBConnection" %>
+<%--
   Created by IntelliJ IDEA.
   User: lakha
   Date: 19-06-2025
@@ -13,26 +15,27 @@
 <head>
     <!-- Basic Page Info -->
     <meta charset="utf-8"/>
-    <title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
+    <title>Lilbrio - Bookstore </title>
+    <link rel="icon" type="image/png" href="../User/images/Logo.png">
 
     <!-- Site favicon -->
-    <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="../vendors/images/apple-touch-icon.png"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="../vendors/images/favicon-32x32.png"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="../vendors/images/favicon-16x16.png"
-    />
+<%--    <link--%>
+<%--            rel="apple-touch-icon"--%>
+<%--            sizes="180x180"--%>
+<%--            href="../vendors/images/apple-touch-icon.png"--%>
+<%--    />--%>
+<%--    <link--%>
+<%--            rel="icon"--%>
+<%--            type="image/png"--%>
+<%--            sizes="32x32"--%>
+<%--            href="../vendors/images/favicon-32x32.png"--%>
+<%--    />--%>
+<%--    <link--%>
+<%--            rel="icon"--%>
+<%--            type="image/png"--%>
+<%--            sizes="16x16"--%>
+<%--            href="../vendors/images/favicon-16x16.png"--%>
+<%--    />--%>
 
     <!-- Mobile Specific Metas -->
     <meta
@@ -147,7 +150,7 @@
 </head>
 <body>
 
-<jsp:include page="HeaderSidebar.jsp" flush="true"></jsp:include>
+<jsp:include page="HeaderSideBar.jsp" flush="true"></jsp:include>
 
 <div class="main-container">
     <div class="pd-ltr-20 xs-pd-20-10">
@@ -179,8 +182,7 @@
                     pw.println("<h3>Please login first.</h3>");
                 } else {
                     try {
-                        Class.forName("oracle.jdbc.driver.OracleDriver");
-                        Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "system");
+                        Connection con= DBConnection.getConnection();
 
                         String sql = "SELECT * FROM users WHERE FNAME = ?";
                         PreparedStatement ps = con.prepareStatement(sql);
@@ -197,13 +199,13 @@
                             int roleId = rs.getInt("ROLE_ID");
                             String address = rs.getString("ADDRESS");
 
-                            byte[] imgBytes = rs.getBytes("IMAGE");
-                            String imageSrc;
+                            byte[] imgBytes = rs.getBytes("USER_IMAGE");
+                            String UserImage;
                             if (imgBytes != null && imgBytes.length > 0) {
                                 String base64Image = Base64.getEncoder().encodeToString(imgBytes);
-                                imageSrc = "data:image/jpeg;base64," + base64Image;
+                                UserImage = "data:image/jpeg;base64," + base64Image;
                             } else {
-                                imageSrc = request.getContextPath() + "/vendors/images/default-avatar.png"; // fallback image
+                                UserImage = request.getContextPath() + "/vendors/images/default-avatar.png"; // fallback image
                             }
             %>
             <div class="pd-20  mb-30">
@@ -213,11 +215,12 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="<%=imageSrc%>" alt="Admin"
+                                    <img src="<%= session.getAttribute("USER_IMAGE") %>" alt="Admin"
                                          class="rounded-circle" width="150">
+    
                                     <div class="mt-3">
                                         <h4><%=fullName%></h4>
-                                        <p class="text-muted font-size-sm mt-3">Bay Area, San Francisco, CA</p>
+<%--                                        <p class="text-muted font-size-sm mt-3">Bay Area, San Francisco, CA</p>--%>
                                     </div>
                                 </div>
                             </div>

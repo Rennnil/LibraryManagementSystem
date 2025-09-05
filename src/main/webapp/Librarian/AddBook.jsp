@@ -6,37 +6,35 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="p1.Connection" %>
-<%@ page import="java.sql.DriverManager" %>
-<%@ page import="java.sql.PreparedStatement" %>
-<%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="p1.DBConnection" %>
 <!DOCTYPE html>
 <html>
 <head>
     <!-- Basic Page Info -->
     <meta charset="utf-8"/>
-    <title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
+    <title>Lilbrio - Bookstore </title>
+    <link rel="icon" type="image/png" href="../User/images/Logo.png">
 
     <!-- Site favicon -->
-    <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="../vendors/images/apple-touch-icon.png"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="../vendors/images/favicon-32x32.png"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="../vendors/images/favicon-16x16.png"
-    />
+<%--    <link--%>
+<%--            rel="apple-touch-icon"--%>
+<%--            sizes="180x180"--%>
+<%--            href="../vendors/images/apple-touch-icon.png"--%>
+<%--    />--%>
+<%--    <link--%>
+<%--            rel="icon"--%>
+<%--            type="image/png"--%>
+<%--            sizes="32x32"--%>
+<%--            href="../vendors/images/favicon-32x32.png"--%>
+<%--    />--%>
+<%--    <link--%>
+<%--            rel="icon"--%>
+<%--            type="image/png"--%>
+<%--            sizes="16x16"--%>
+<%--            href="../vendors/images/favicon-16x16.png"--%>
+<%--    />--%>
 
     <!-- Mobile Specific Metas -->
     <meta
@@ -105,8 +103,12 @@
     <!-- End Google Tag Manager -->
 </head>
 <body>
+<%
+HttpSession session1 = request.getSession(false);
+int userId = (int) session1.getAttribute("userId");
+%>
 
-<jsp:include page="HeaderSidebar.jsp" flush="true"></jsp:include>
+<jsp:include page="HeaderSideBar.jsp" flush="true"></jsp:include>
 
 <div class="main-container">
     <div class="pd-ltr-20 xs-pd-20-10">
@@ -115,7 +117,7 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
                         <div class="title">
-                            <h4>DataTable</h4>
+                            <h4>Add Books</h4>
                         </div>
                         <nav aria-label="breadcrumb" role="navigation">
                             <ol class="breadcrumb">
@@ -123,7 +125,7 @@
                                     <a href="index.jsp">Home</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    DataTable
+                                    Add Books
                                 </li>
                             </ol>
                         </nav>
@@ -150,18 +152,18 @@
                         <th>Category</th>
                         <th>Published Year</th>
                         <th>Quentity</th>
-                        <th>Available Quentity</th>
+                        <th>Available Qty</th>
                         <th class="datatable-nosort">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
                     <%
                         try {
-                            Class.forName("oracle.jdbc.driver.OracleDriver");
-                            java.sql.Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "system");
-                            Statement st=con.createStatement();
-                            String sql = "SELECT * FROM BOOK ORDER BY BOOK_ID DESC";
-                            ResultSet rs = st.executeQuery(sql);
+                            Connection con= DBConnection.getConnection();
+                            String sql = "SELECT * FROM BOOK WHERE USER_ID=?";
+                            PreparedStatement pr=con.prepareStatement(sql);
+                            pr.setInt(1,userId);
+                            ResultSet rs = pr.executeQuery();
 
                             while (rs.next()) {
                                 int bookId = rs.getInt("BOOK_ID");
@@ -172,17 +174,16 @@
                                 int year = rs.getInt("YEAR_PUBLISHED");
                                 int qty = rs.getInt("QNTY");
                                 int available = rs.getInt("AVAILABLE_QNTY");
-
-                                byte[] imgBytes = rs.getBytes("IMAGE");
+                                byte[] imgBytes = rs.getBytes("BOOK_IMAGE");
                                 String base64Image = java.util.Base64.getEncoder().encodeToString(imgBytes);
-                                String imageSrc = "data:image/jpeg;base64," + base64Image;
+                                String BookImage = "data:image/jpeg;base64," + base64Image;
                     %>
                     <tr>
                         <td class="table-plus">
                             <div class="name-avatar d-flex align-items-center">
                                 <div class="avatar mr-2 flex-shrink-0">
                                     <img
-                                            src="<%= imageSrc %>"
+                                            src="<%= BookImage %>"
                                             style="width: 50px; height: 50px; object-fit: cover; border-radius: 1000px; box-shadow: 0 0 5px rgba(0,0,0,0.1); display: block;"
                                             alt="Book Cover"
                                     />
@@ -193,7 +194,6 @@
                                 </div>
                             </div>
                         </td>
-                        <%--                        <td class="book-id"><%=bookId%></td>--%>
                         <td class="book-author"><%=author%></td>
                         <td class="book-publisher"><%=publisher%></td>
                         <td class="book-category"><%=category%></td>
@@ -226,7 +226,7 @@
                     <%
                             }
                             rs.close();
-                            st.close();
+                            pr.close();
                             con.close();
                         } catch (Exception e) {
                             PrintWriter pw = response.getWriter();
@@ -280,12 +280,21 @@
                         <input type="text" name="publisher" class="form-control">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1">Category</label>
-                        <input type="text" name="category" class="form-control">
+                        <label for="exampleInputEmail1">Category</label>
+                        <select name="category" class="form-control">
+                            <option value="Novels">Novels</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Children">Children</option>
+                            <option value="Dystopian">Dystopian</option>
+                            <option value="History">History</option>
+                            <option value="Horror">Horror</option>
+                            <option value="Mystery">Mystery</option>
+                            <option value="Mythology">Mythology</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1">Published Year</label>
-                        <input type="text" name="publishedyear" class="form-control">
+                        <input type="text" name="published_year" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1">Qty</label>
@@ -293,9 +302,12 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1">Book Image</label>
-                        <input type="file" name="bookimage" class="form-control">
+                        <input type="file" name="book_image" class="form-control">
                     </div>
-
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1">Author Image</label>
+                        <input type="file" name="author_image" class="form-control">
+                    </div>
                     <div class="d-flex" style="gap: 20px;">
                         <button type="submit" class="btn btn-primary w-75">Add Book</button>
                         <button

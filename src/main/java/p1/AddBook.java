@@ -3,13 +3,9 @@ package p1;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
+import javax.servlet.http.*;
+
+import java.io.*;
 import java.sql.*;
 import java.sql.Connection;
 
@@ -34,25 +30,26 @@ public class AddBook extends HttpServlet {
         String author = request.getParameter("author");
         String publisher = request.getParameter("publisher");
         String category = request.getParameter("category");
-        String yearStr = request.getParameter("publishedyear");
+        String yearStr = request.getParameter("published_year");
         String qtyStr = request.getParameter("qty");
 
         int year = (yearStr != null && !yearStr.isEmpty()) ? Integer.parseInt(yearStr) : 0;
         int qty = (qtyStr != null && !qtyStr.isEmpty()) ? Integer.parseInt(qtyStr) : 0;
 
-        Part imagePart = request.getPart("bookimage");
+        Part BookImage = request.getPart("book_image");
+        Part AuthorImage = request.getPart("author_image");
 
-        Connection con = null;
-        PreparedStatement ps = null;
+        HttpSession session = request.getSession(false);
+        int userId = (int) session.getAttribute("userId");
+
 
         try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "system");
+            Connection con= DBConnection.getConnection();
 
-            String sql = "INSERT INTO BOOK (BOOK_ID, TITLE, AUTHOR, PUBLISHER, CATEGORY, YEAR_PUBLISHED, QNTY, AVAILABLE_QNTY, IMAGE) " +
-                    "VALUES (BOOK_ID_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO BOOK (BOOK_ID, TITLE, AUTHOR, PUBLISHER, CATEGORY, YEAR_PUBLISHED, QNTY, AVAILABLE_QNTY, BOOK_IMAGE,AUTHOR_IMAGE,USER_ID) " +
+                    "VALUES (BOOK_ID_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-            ps = con.prepareStatement(sql);
+            PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, title);
             ps.setString(2, author);
             ps.setString(3, publisher);
@@ -61,12 +58,19 @@ public class AddBook extends HttpServlet {
             ps.setInt(6, qty);
             ps.setInt(7, qty); // available qty = total initially
 
-            if (imagePart != null && imagePart.getSize() > 0) {
-                InputStream inputStream = imagePart.getInputStream();
-                ps.setBinaryStream(8, inputStream, imagePart.getSize()); // ✅ Streaming the image
+            if (BookImage != null && BookImage.getSize() > 0) {
+                InputStream inputStream = BookImage.getInputStream();
+                ps.setBinaryStream(8, inputStream, BookImage.getSize());
             } else {
                 ps.setNull(8, Types.BLOB);
             }
+            if (AuthorImage != null && AuthorImage.getSize() > 0) {
+                InputStream inputStream1 = AuthorImage.getInputStream();
+                ps.setBinaryStream(9, inputStream1, AuthorImage.getSize());
+            } else {
+                ps.setNull(9, Types.BLOB);
+            }
+            ps.setInt(10, userId);
 
             int inserted = ps.executeUpdate();
 
@@ -79,13 +83,6 @@ public class AddBook extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
             out.println("<h3 style='color:red;'>Error: " + e.getMessage() + "</h3>");
-        } finally {
-            try {
-                if (ps != null) ps.close();
-                if (con != null) con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
     }
 }

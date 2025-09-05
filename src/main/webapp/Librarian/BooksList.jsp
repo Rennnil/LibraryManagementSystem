@@ -6,35 +6,35 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.sql.DriverManager" %>
-<%@ page import="java.sql.Statement" %>
-<%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="p1.DBConnection" %>
 <!DOCTYPE html>
 <html>
 <head>
     <!-- Basic Page Info -->
     <meta charset="utf-8"/>
-    <title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
+    <title>Lilbrio - Bookstore </title>
+    <link rel="icon" type="image/png" href="../User/images/Logo.png">
 
     <!-- Site favicon -->
-    <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="../vendors/images/apple-touch-icon.png"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="../vendors/images/favicon-32x32.png"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="../vendors/images/favicon-16x16.png"
-    />
+<%--    <link--%>
+<%--            rel="apple-touch-icon"--%>
+<%--            sizes="180x180"--%>
+<%--            href="../vendors/images/apple-touch-icon.png"--%>
+<%--    />--%>
+<%--    <link--%>
+<%--            rel="icon"--%>
+<%--            type="image/png"--%>
+<%--            sizes="32x32"--%>
+<%--            href="../vendors/images/favicon-32x32.png"--%>
+<%--    />--%>
+<%--    <link--%>
+<%--            rel="icon"--%>
+<%--            type="image/png"--%>
+<%--            sizes="16x16"--%>
+<%--            href="../vendors/images/favicon-16x16.png"--%>
+<%--    />--%>
 
     <!-- Mobile Specific Metas -->
     <meta
@@ -291,7 +291,12 @@
 </head>
 <body>
 
-<jsp:include page="HeaderSidebar.jsp" flush="true"></jsp:include>
+<jsp:include page="HeaderSideBar.jsp" flush="true"></jsp:include>
+
+<%
+    HttpSession session1 = request.getSession(false);
+    int userId = (int) session1.getAttribute("userId");
+%>
 
 <div class="main-container">
     <div class="pd-ltr-20 xs-pd-20-10">
@@ -300,7 +305,7 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
                         <div class="title">
-                            <h4>Product</h4>
+                            <h4>Books</h4>
                         </div>
                         <nav aria-label="breadcrumb" role="navigation">
                             <ol class="breadcrumb">
@@ -308,7 +313,7 @@
                                     <a href="index.jsp">Home</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    Product
+                                    Books
                                 </li>
                             </ol>
                         </nav>
@@ -321,30 +326,29 @@
                     <ul class="row">
                         <%
                             try {
-                                Class.forName("oracle.jdbc.driver.OracleDriver");
-                                java.sql.Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "system");
-                                Statement st=con.createStatement();
-                                String sql = "SELECT * FROM BOOK";
-                                ResultSet rs = st.executeQuery(sql);
+                                Connection con= DBConnection.getConnection();
+                                String sql = "SELECT * FROM BOOK WHERE USER_ID=?";
+                                PreparedStatement pr=con.prepareStatement(sql);
+                                pr.setInt(1,userId);
+                                ResultSet rs = pr.executeQuery();
                                 while (rs.next()) {
                                     int bookId = rs.getInt("BOOK_ID");
                                     String title = rs.getString("TITLE");
-                                    String author = rs.getString("AUTHOR");
                                     String publisher = rs.getString("PUBLISHER");
-                                    String category = rs.getString("CATEGORY");
                                     int year = rs.getInt("YEAR_PUBLISHED");
-                                    int qty = rs.getInt("QNTY");
-                                    int available = rs.getInt("AVAILABLE_QNTY");
-                                    byte[] imgBytes = rs.getBytes("IMAGE");
+                                    byte[] imgBytes = rs.getBytes("BOOK_IMAGE");
                                     String base64Image = java.util.Base64.getEncoder().encodeToString(imgBytes);
-                                    String imageSrc = "data:image/jpeg;base64," + base64Image;
+                                    String BookImage = "data:image/jpeg;base64," + base64Image;
+                                    byte[] imgBytes1 = rs.getBytes("AUTHOR_IMAGE");
+                                    String base64Image1 = java.util.Base64.getEncoder().encodeToString(imgBytes1);
+                                    String AuthorImage = "data:image/jpeg;base64," + base64Image1;
                         %>
                         <a href="BookDetails.jsp?id=<%=bookId%>" class="ag-courses_item">
                             <div class="ag-courses_item">
                                 <div class="course-img-cover">
-                                    <img class="course-img" src="<%=imageSrc%>" alt=""/>
+                                    <img class="course-img" src="<%=AuthorImage%>" alt=""/>
                                     <div class="fac-img-cover">
-                                        <img class="fac-img" src="pic-1.jpg" alt=""/>
+                                        <img class="fac-img" src="<%=BookImage%>" alt=""/>
                                     </div>
                                 </div>
                                 <div class="ag-courses-item_link">
@@ -366,7 +370,7 @@
                         <%
                                 }
                                 rs.close();
-                                st.close();
+                                pr.close();
                                 con.close();
                             } catch (Exception e) {
                                 PrintWriter pw = response.getWriter();

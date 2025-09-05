@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">    
 <head>
     <!-- Basic Page Info -->
     <meta charset="utf-8"/>
@@ -189,7 +189,7 @@
 <div class="pre-loader">
     <div class="pre-loader-box">
         <div class="loader-logo">
-            <img src="vendors/images/deskapp-logo.svg" alt=""/>
+            <img src="vendors/images/Logoo.png" alt=""/>
         </div>
         <div class="loader-progress" id="progress_div">
             <div class="bar" id="bar1"></div>
@@ -203,12 +203,11 @@
     <div class="row">
         <!-- Left Panel -->
         <div class="col-md-3 register-left">
-            <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
-            <h3>Welcome To <br>HR Book Store</h3>
-            <p>You are 30 seconds away from earning your own money!</p>
+            <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""++/>
+            <h3>Welcome To <br>Lilbrio</h3>
             <a href="Register.jsp"><input type="submit" value="Register"/></a><br/>
         </div>
-
+    
         <!-- Right Panel -->
         <div class="col-md-9 register-right">
             <div class="tab-content" id="myTabContent">
