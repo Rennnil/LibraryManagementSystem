@@ -252,6 +252,15 @@
         .ag-courses-item_date-box:last-child {
             margin-top: 10px;
         }
+        .ag-courses-item_title {
+            width: 100%;
+            display: inline-block;
+            white-space: nowrap;       /* Prevents text from wrapping */
+            overflow: hidden;          /* Hides extra text */
+            text-overflow: ellipsis;   /* Adds ... */
+            max-width: 150px;          /* Adjust width to control truncation */
+        }
+
     </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
@@ -346,16 +355,17 @@
                         <a href="BookDetails.jsp?id=<%=bookId%>" class="ag-courses_item">
                             <div class="ag-courses_item">
                                 <div class="course-img-cover">
-                                    <img class="course-img" src="<%=AuthorImage%>" alt=""/>
+                                    <img class="course-img" src="<%=BookImage%>" alt=""/>
                                     <div class="fac-img-cover">
-                                        <img class="fac-img" src="<%=BookImage%>" alt=""/>
+                                        <img class="fac-img" src="<%=AuthorImage%>" alt=""/>
                                     </div>
                                 </div>
                                 <div class="ag-courses-item_link">
                                     <div class="ag-courses-item_bg"></div>
-
-                                    <div class="ag-courses-item_title"><%=title%></div>
-
+                                    <%
+                                        String displayTitle = title.length() > 13 ? title.substring(0, 13) + "..." : title;
+                                    %>
+                                    <div class="ag-courses-item_title"><%=displayTitle%></div>
                                     <div class="ag-courses-item_date-box">
                                         Author :
                                         <span class="ag-courses-item_date"><%=publisher%></span>

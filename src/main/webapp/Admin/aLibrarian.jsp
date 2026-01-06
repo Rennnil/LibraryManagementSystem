@@ -8,26 +8,27 @@
 <head>
     <!-- Basic Page Info -->
     <meta charset="utf-8"/>
-    <title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
+    <title>Lilbrio - Bookstore </title>
+    <link rel="icon" type="image/png" href="../User/images/Logo.png">
 
     <!-- Site favicon -->
-    <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="../vendors/images/apple-touch-icon.png"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="../vendors/images/favicon-32x32.png"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="../vendors/images/favicon-16x16.png"
-    />
+<%--    <link--%>
+<%--            rel="apple-touch-icon"--%>
+<%--            sizes="180x180"--%>
+<%--            href="../vendors/images/apple-touch-icon.png"--%>
+<%--    />--%>
+<%--    <link--%>
+<%--            rel="icon"--%>
+<%--            type="image/png"--%>
+<%--            sizes="32x32"--%>
+<%--            href="../vendors/images/favicon-32x32.png"--%>
+<%--    />--%>
+<%--    <link--%>
+<%--            rel="icon"--%>
+<%--            type="image/png"--%>
+<%--            sizes="16x16"--%>
+<%--            href="../vendors/images/favicon-16x16.png"--%>
+<%--    />--%>
 
     <!-- Mobile Specific Metas -->
     <meta
@@ -119,13 +120,11 @@
                         String sql = "SELECT * FROM users WHERE ROLE_ID=2";
                         ResultSet rs = st.executeQuery(sql);
 
-                        pw.println("Connected & Query Executed");
-
                         while (rs.next()) {
                             int userId = rs.getInt("USER_ID");
                             String fullName = rs.getString("FNAME") + " " + rs.getString("LNAME");
                             String email = rs.getString("EMAIL");
-                            byte[] imgBytes = rs.getBytes("USER_IMAGE");
+                            byte[] imgBytes = rs.getBytes("IMAGE");
                             String UserImage;
                             if (imgBytes != null) {
                                 String base64Image = java.util.Base64.getEncoder().encodeToString(imgBytes);
@@ -154,8 +153,6 @@
                         <div class="da-card-content">
                             <h5 class="h5 mb-10"><%=fullName%>
                             </h5>
-                            <p class="mb-0"><%=email%>
-                            </p>
                         </div>
                     </div>
                 </div>

@@ -199,7 +199,7 @@
                             int roleId = rs.getInt("ROLE_ID");
                             String address = rs.getString("ADDRESS");
 
-                            byte[] imgBytes = rs.getBytes("USER_IMAGE");
+                            byte[] imgBytes = rs.getBytes("IMAGE");
                             String UserImage;
                             if (imgBytes != null && imgBytes.length > 0) {
                                 String base64Image = Base64.getEncoder().encodeToString(imgBytes);
@@ -215,7 +215,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="<%= session.getAttribute("USER_IMAGE") %>" alt="Admin"
+                                    <img src="<%= UserImage %>" alt="Admin"
                                          class="rounded-circle" width="150">
     
                                     <div class="mt-3">

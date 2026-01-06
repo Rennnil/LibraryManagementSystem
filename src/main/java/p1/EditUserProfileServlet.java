@@ -63,9 +63,36 @@ public class EditUserProfileServlet extends HttpServlet {
             int result = ps.executeUpdate();
 
             if (result > 0) {
+                // Fetch updated user info (including image) from DB
+                String fetchSql = "SELECT FNAME, IMAGE FROM USERS WHERE USER_ID = ?";
+                PreparedStatement fetchPs = con.prepareStatement(fetchSql);
+                fetchPs.setInt(1, id);
+                ResultSet rs = fetchPs.executeQuery();
+
+                if (rs.next()) {
+                    String updatedName = rs.getString("FNAME");
+
+                    // Convert image BLOB to Base64 string
+                    Blob blob = rs.getBlob("IMAGE");
+                    String base64Image = null;
+                    if (blob != null) {
+                        byte[] imgBytes = blob.getBytes(1, (int) blob.length());
+                        base64Image = "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(imgBytes);
+                    }
+
+                    // Update session
+                    HttpSession session = request.getSession();
+                    session.setAttribute("userName", updatedName);
+                    session.setAttribute("image", base64Image);
+                }
+
                 response.sendRedirect(request.getContextPath() + "/User/index.jsp");
             } else {
-                out.println("<h3 style='color:red;'>Update failed.</h3>");
+                out.println("<script type='text/javascript'>");
+                out.println("alert('User Profile Is Not Edited');");
+                out.println("window.location.href='" + request.getContextPath() + "/User/index.jsp';");
+                out.println("</script>");
+                //out.println("<h3 style='color:red;'>Update failed.</h3>");
             }
 
         } catch (Exception e) {

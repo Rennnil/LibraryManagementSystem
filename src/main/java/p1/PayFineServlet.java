@@ -58,7 +58,6 @@ public class PayFineServlet extends HttpServlet {
                 System.out.println("Fine payment updated successfully!");
                 response.sendRedirect(request.getContextPath() + "/User/BorrowedBooks.jsp?status=success");
             } else {
-                // Redirect to Card.jsp if no fine record found
                 response.sendRedirect(request.getContextPath() + "/Payment/Card.jsp?status=failed");
             }
 

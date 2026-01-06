@@ -29,21 +29,20 @@ public class LoginServlet extends HttpServlet {
         try {
             Connection con = DBConnection.getConnection();
 
-            String sql = "SELECT u.USER_ID, u.USER_IMAGE, u.FNAME, u.LNAME,u.ROLE_ID, r.ROLE_NAME " +
+            String sql = "SELECT u.USER_ID, u.IMAGE, u.FNAME, u.LNAME,u.ROLE_ID, r.ROLE_NAME " +
                     "FROM USERS u JOIN ROLE r ON u.ROLE_ID = r.ROLE_ID " +
                     "WHERE u.EMAIL = ? AND u.PASSWORD = ?";
 
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, email);
             ps.setString(2, password);
-
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
                 int roleId = rs.getInt("ROLE_ID");
                 String role = rs.getString("ROLE_NAME").toLowerCase();
                 String fname = rs.getString("FNAME");
-                byte[] imgBytes = rs.getBytes("USER_IMAGE");
+                byte[] imgBytes = rs.getBytes("IMAGE");
                 int userId = rs.getInt("USER_ID");
                 String imageSrc;
 
@@ -77,7 +76,11 @@ public class LoginServlet extends HttpServlet {
                         out.println("<h3 style='color:red;'>Unknown role: " + role + "</h3>");
                 }
             } else {
-                out.println("<h3 style='color:red;'>Invalid email or password.</h3>");
+                out.println("<script type='text/javascript'>");
+                out.println("alert('Invalid Email or Password.');");
+                out.println("window.location.href='" + request.getContextPath() + "/User/index.jsp';");
+                out.println("</script>");
+//                out.println("<h3 style='color:red;'>Invalid email or password.</h3>");
             }
 
             con.close();

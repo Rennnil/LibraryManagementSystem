@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.*;
 import java.time.LocalDate;
 
@@ -31,6 +32,7 @@ public class IssueBookServlet extends HttpServlet {
                 response.sendRedirect("Login.jsp");
                 return;
             }
+            PrintWriter out=response.getWriter();
 
             int bookId = Integer.parseInt(request.getParameter("bookId"));
             int librarianID = Integer.parseInt(request.getParameter("userId"));
@@ -69,6 +71,10 @@ public class IssueBookServlet extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/User/BorrowedBooks.jsp");
 
             } else {
+                out.println("<script type='text/javascript'>");
+                out.println("alert('Book Are Not Issued');");
+                out.println("window.location.href='" + request.getContextPath() + "/User/index.jsp';");
+                out.println("</script>");
                 response.getWriter().println("Failed to issue book.");
             }
 

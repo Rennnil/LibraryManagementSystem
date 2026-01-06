@@ -49,8 +49,8 @@ public class Register extends HttpServlet {
         try {
             Connection con=DBConnection.getConnection();
 
-            String sql = "INSERT INTO USERS (USER_ID, FNAME, LNAME, EMAIL, PASSWORD, MOBILE_NO, GENDER, ROLE_ID, ADDRESS, USER_IMAGE, CREATED_AT) " +
-                    "VALUES (USERS_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE)";
+            String sql = "INSERT INTO USERS (USER_ID, FNAME, LNAME, EMAIL, PASSWORD, MOBILE_NO, GENDER, ROLE_ID, ADDRESS, IMAGE, CREATED_AT) " +
+                    "VALUES (USER_ID_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, fname);
             ps.setString(2, lname);
@@ -76,7 +76,11 @@ public class Register extends HttpServlet {
                 if ("admin".equalsIgnoreCase(source)) {
                     response.sendRedirect(request.getContextPath() + "/Admin/ManageLibrarian.jsp");
                 } else {
-                    response.sendRedirect(request.getContextPath() + "/Login.jsp");
+                    out.println("<script type='text/javascript'>");
+                    out.println("alert('User Not registered');");
+                    out.println("window.location.href='" + request.getContextPath() + "/Admin/ManageLibrarian.jsp';");
+                    out.println("</script>");
+                    //response.sendRedirect(request.getContextPath() + "/Login.jsp");
 
                 }
             } else {

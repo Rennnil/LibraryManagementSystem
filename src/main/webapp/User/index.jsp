@@ -25,7 +25,158 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
           rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffecea;
+        }
+
+        footer {
+            background: #f49892;
+            color: #fff;
+            padding: 50px 20px 20px;
+        }
+
+        .footer-container {
+            width: 90%;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-col {
+            flex: 1 1 250px;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #fff;
+            position: relative;
+        }
+
+        .footer-col h3::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: #fff;
+            margin-top: 8px;
+        }
+
+        .footer-col a {
+            color: #fff;
+            text-decoration: none;
+            line-height: 1.8;
+            font-size: 15px;
+            transition: 0.3s;
+            display: block;
+        }
+
+        .footer-col a:hover {
+            color: #25262A;
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .contact-info i {
+            color: #fff;
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        /* Query Form */
+        .query-form {
+            margin-top: 15px;
+        }
+
+        .query-form input,
+        .query-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-family: inherit;
+            resize: none;
+        }
+
+        .query-form button {
+            background: #25262A;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .query-form button:hover {
+            background: #fff;
+            color: #25262A;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            color: #f49892;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: #25262A;
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #fff;
+            margin-top: 30px;
+            padding-top: 15px;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .contact-info div {
+                justify-content: center;
+            }
+
+            .social-icons a {
+                margin: 5px;
+            }
+        }
+    </style>
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -159,6 +310,7 @@
             <use xlink:href="#alt-arrow-left-outline"></use>
         </svg>
     </div>
+
     <div class="swiper main-swiper">
         <div class="swiper-wrapper d-flex align-items-center">
 
@@ -177,7 +329,7 @@
                     while (rs.next()) {
                         String title = rs.getString("TITLE");
                         String author = rs.getString("AUTHOR");
-                        byte[] imgBytes = rs.getBytes("AUTHOR_IMAGE");
+                        byte[] imgBytes = rs.getBytes("BOOK_IMAGE");
 
                         String imageSrc = "";
                         if (imgBytes != null && imgBytes.length > 0) {
@@ -193,11 +345,11 @@
                         <div class="col-md-5 offset-md-1 mt-5 mt-md-0 text-center text-md-start">
                             <div class="banner-content">
                                 <h2><%= title %></h2>
-                                <p>By <%= author %> — Highly Rated!</p>
-                                <a href="BookDetails.jsp?title=<%= java.net.URLEncoder.encode(title, "UTF-8") %>"
-                                   class="btn btn-primary mt-3">
-                                    View Details
-                                </a>
+                                <p>By <%= author %> - Highly Rated!</p>
+<%--                                <a href="BookDetails.jsp?title=<%= java.net.URLEncoder.encode(title, "UTF-8") %>"--%>
+<%--                                   class="btn btn-primary mt-3">--%>
+<%--                                    View Details--%>
+<%--                                </a>--%>
                             </div>
                         </div>
 
@@ -239,7 +391,7 @@
     <div class="container">
         <div class="section-title d-md-flex justify-content-between align-items-center mb-4">
             <h3 class="d-flex align-items-center">Top Rated Books</h3>
-            <a href="index.jsp" class="btn">View All</a>
+            <a href="TopRatedBooks.jsp" class="btn">View All</a>
         </div>
 
         <div class="swiper product-swiper">
@@ -250,7 +402,7 @@
                         Class.forName("oracle.jdbc.driver.OracleDriver");
                         Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "system");
                         Statement st = con.createStatement();
-                        ResultSet rs = st.executeQuery("SELECT BOOK_ID, TITLE, AUTHOR, RATING, AUTHOR_IMAGE FROM BOOK WHERE RATING >= 4");
+                        ResultSet rs = st.executeQuery("SELECT BOOK_ID, TITLE, AUTHOR, RATING, BOOK_IMAGE FROM BOOK WHERE RATING >= 4");
 
                         while (rs.next()) {
                             int bookId = rs.getInt("BOOK_ID");
@@ -258,7 +410,7 @@
                             String author = rs.getString("AUTHOR");
                             float rating = rs.getFloat("RATING");
 
-                            byte[] imgBytes = rs.getBytes("AUTHOR_IMAGE");
+                            byte[] imgBytes = rs.getBytes("BOOK_IMAGE");
                             String base64Image = Base64.getEncoder().encodeToString(imgBytes);
                             String imageSrc = "data:image/jpeg;base64," + base64Image;
                 %>
@@ -335,7 +487,7 @@
                     <a href="index.jsp">
                         <img src="images/category2.jpg" class="img-fluid rounded-3" alt="cart item">
                         <h6 class=" position-absolute bottom-0 bg-primary m-4 py-2 px-3 rounded-3"><a href="index.jsp"
-                                                                                                      class="text-white">Lifestyle</a>
+                                                                                                      class="text-white">History</a>
                         </h6>
                     </a>
                 </div>
@@ -345,7 +497,7 @@
                     <a href="index.jsp">
                         <img src="images/category3.jpg" class="img-fluid rounded-3" alt="cart item">
                         <h6 class=" position-absolute bottom-0 bg-primary m-4 py-2 px-3 rounded-3"><a href="index.jsp"
-                                                                                                      class="text-white">Recipe</a>
+                                                                                                      class="text-white">Chindren</a>
                         </h6>
                     </a>
                 </div>
@@ -358,8 +510,7 @@
 <section id="latest-posts" class="padding-large">
     <div class="container">
         <div class="section-title d-md-flex justify-content-between align-items-center mb-4">
-            <h3 class="d-flex align-items-center">Latest posts</h3>
-            <a href="index.jsp" class="btn">View All</a>
+            <h3 class="d-flex align-items-center">Latest Books</h3>
         </div>
         <div class="row">
             <%
@@ -401,132 +552,83 @@
 </section>
 
 
-<footer id="footer" class="padding-large">
-    <div class="container">
-        <div class="row">
-            <div class="footer-top-area">
-                <div class="row d-flex flex-wrap justify-content-between">
-                    <div class="col-lg-3 col-sm-6 pb-3">
-                        <div class="footer-menu">
-                            <img src="images/main-logo.png" alt="logo" class="img-fluid mb-2">
-                            <p>Nisi, purus vitae, ultrices nunc. Sit ac sit suscipit hendrerit. Gravida massa volutpat
-                                aenean odio
-                                erat nullam fringilla.</p>
-                            <div class="social-links">
-                                <ul class="d-flex list-unstyled">
-                                    <li>
-                                        <a href="#">
-                                            <svg class="facebook">
-                                                <use xlink:href="#facebook"/>
-                                            </svg>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <svg class="instagram">
-                                                <use xlink:href="#instagram"/>
-                                            </svg>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <svg class="twitter">
-                                                <use xlink:href="#twitter"/>
-                                            </svg>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <svg class="linkedin">
-                                                <use xlink:href="#linkedin"/>
-                                            </svg>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <svg class="youtube">
-                                                <use xlink:href="#youtube"/>
-                                            </svg>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-sm-6 pb-3">
-                        <div class="footer-menu text-capitalize">
-                            <h5 class="widget-title pb-2">Quick Links</h5>
-                            <ul class="menu-list list-unstyled text-capitalize">
-                                <li class="menu-item mb-1">
-                                    <a href="#">Home</a>
-                                </li>
-                                <li class="menu-item mb-1">
-                                    <a href="#">About</a>
-                                </li>
-                                <li class="menu-item mb-1">
-                                    <a href="#">Shop</a>
-                                </li>
-                                <li class="menu-item mb-1">
-                                    <a href="#">Blogs</a>
-                                </li>
-                                <li class="menu-item mb-1">
-                                    <a href="#">Contact</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-sm-3 pb-3">
-                        <div class="footer-menu text-capitalize">
+<footer id="footer" style="background:#f49892;color:#fff;padding:50px 20px 20px;font-family:'Poppins',sans-serif;overflow-x:hidden;">
+    <div style="width:95%;margin:auto;display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:nowrap;">
 
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-3 pb-3">
-                        <div class="footer-menu contact-item">
-                            <h5 class="widget-title text-capitalize pb-2">Contact Us</h5>
-                            <p>Do you have any queries or suggestions? <a href="mailto:"
-                                                                          class="text-decoration-underline">yourinfo@gmail.com</a>
-                            </p>
-                            <p>If you need support? Just give us a call. <a href="#" class="text-decoration-underline">+55
-                                111 222
-                                333 44</a></p>
-                        </div>
-                    </div>
-                </div>
+        <!-- Quick Links -->
+        <div style="flex:1;">
+            <h3 style="margin-bottom:20px;font-size:20px;color:#fff;">Quick Links</h3>
+            <div style="width:50px;height:2px;background:#fff;margin-top:8px;margin-bottom:12px;"></div>
+            <a href="" style="color:#fff;text-decoration:none;line-height:1.8;font-size:15px;display:block;">Home</a>
+            <a href="#" style="color:#fff;text-decoration:none;line-height:1.8;font-size:15px;display:block;">About</a>
+            <a href="#" style="color:#fff;text-decoration:none;line-height:1.8;font-size:15px;display:block;">Book</a>
+            <a href="#" style="color:#fff;text-decoration:none;line-height:1.8;font-size:15px;display:block;">Category</a>
+        </div>
+
+        <!-- Contact Info -->
+        <div style="flex:1;">
+            <h3 style="margin-bottom:20px;font-size:20px;color:#fff;">Contact Us</h3>
+            <div style="width:50px;height:2px;background:#fff;margin-top:8px;margin-bottom:12px;"></div>
+            <div style="display:flex;align-items:center;margin-bottom:12px;">
+                <i class="fa-solid fa-location-dot" style="color:#fff;margin-right:10px;font-size:18px;"></i>
+                <span>45 Knowledge Avenue, City Library, India</span>
+            </div>
+            <div style="display:flex;align-items:center;margin-bottom:12px;">
+                <i class="fa-solid fa-phone" style="color:#fff;margin-right:10px;font-size:18px;"></i>
+                <span>+91 9173545212</span>
+            </div>
+            <div style="display:flex;align-items:center;margin-bottom:12px;">
+                <i class="fa-solid fa-envelope" style="color:#fff;margin-right:10px;font-size:18px;"></i>
+                <span>lilbriomanagement@gmail.com</span>
+            </div>
+        </div>
+
+        <!-- Send Your Query -->
+        <div style="flex:1;">
+            <h3 style="margin-bottom:20px;font-size:20px;color:#fff;">Send Your Query</h3>
+            <div style="width:50px;height:2px;background:#fff;margin-top:8px;margin-bottom:12px;"></div>
+            <form action="../SendQueryServlet" method="post">
+                <input type="text" name="name" placeholder="Your Name" required
+                       style="width:100%;padding:10px;margin-bottom:10px;border:none;border-radius:5px;outline:none;font-family:inherit;">
+                <input type="email" name="email" placeholder="Your Email" required
+                       style="width:100%;padding:10px;margin-bottom:10px;border:none;border-radius:5px;outline:none;font-family:inherit;">
+                <textarea rows="3" name="query" placeholder="Enter your query..." required
+                          style="width:100%;padding:10px;margin-bottom:10px;border:none;border-radius:5px;outline:none;font-family:inherit;resize:none;"></textarea>
+                <button type="submit"
+                        style="background:#25262A;color:#fff;border:none;padding:10px 20px;border-radius:5px;cursor:pointer;font-weight:500;">
+                    Send
+                </button>
+            </form>
+
+        </div>
+
+        <!-- Follow Us -->
+        <div style="flex:1;">
+            <h3 style="margin-bottom:20px;font-size:20px;color:#fff;">Follow Us</h3>
+            <div style="width:50px;height:2px;background:#fff;margin-top:8px;margin-bottom:12px;"></div>
+            <div style="display:flex;align-items:center;gap:10px;">
+                <a href="#" style="display:inline-block;width:40px;height:40px;background:#fff;color:#f49892;text-align:center;line-height:40px;border-radius:50%;text-decoration:none;">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" style="display:inline-block;width:40px;height:40px;background:#fff;color:#f49892;text-align:center;line-height:40px;border-radius:50%;text-decoration:none;">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a href="#" style="display:inline-block;width:40px;height:40px;background:#fff;color:#f49892;text-align:center;line-height:40px;border-radius:50%;text-decoration:none;">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" style="display:inline-block;width:40px;height:40px;background:#fff;color:#f49892;text-align:center;line-height:40px;border-radius:50%;text-decoration:none;">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
             </div>
         </div>
     </div>
+
+    <div style="text-align:center;border-top:1px solid #fff;margin-top:30px;padding-top:15px;color:#fff;font-size:14px;">
+        <p>© LilBRiO | All Rights Reserved.</p>
+    </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </footer>
-<hr>
-
-<div id="footer-bottom" class="mb-2">
-    <div class="container">
-        <div class="d-flex flex-wrap justify-content-between">
-            <div class="ship-and-payment d-flex gap-md-5 flex-wrap">
-                <div class="shipping d-flex">
-                    <p>We ship with:</p>
-                    <div class="card-wrap ps-2">
-                        <img src="images/dhl.png" alt="visa">
-                        <img src="images/shippingcard.png" alt="mastercard">
-                    </div>
-                </div>
-                <div class="payment-method d-flex">
-                    <p>Payment options:</p>
-                    <div class="card-wrap ps-2">
-                        <img src="images/visa.jpg" alt="visa">
-                        <img src="images/mastercard.jpg" alt="mastercard">
-                        <img src="images/paypal.jpg" alt="paypal">
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>© Copyright 2024 Bookly. HTML Template by <a href="https://templatesjungle.com/"
-                                                                target="_blank">TemplatesJungle</a>
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 </body>
 </html>

@@ -45,7 +45,7 @@ public class UserRegisterServlet extends HttpServlet {
             Connection con=DBConnection.getConnection();
 
             String sql = "INSERT INTO USERS (USER_ID, FNAME, LNAME, EMAIL, PASSWORD, MOBILE_NO, GENDER, ADDRESS, IMAGE,ROLE_ID) " +
-                    "VALUES (USERS_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    "VALUES (USER_ID_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, fname);
             ps.setString(2, lname);
@@ -68,7 +68,11 @@ public class UserRegisterServlet extends HttpServlet {
             if (result > 0) {
                     response.sendRedirect(request.getContextPath() + "/User/index.jsp");
             } else {
-                out.println("<h3 style='color:red;'>Registration failed.</h3>");
+                out.println("<script type='text/javascript'>");
+                out.println("alert('You Are Not Registered');");
+                out.println("window.location.href='" + request.getContextPath() + "/User/index.jsp';");
+                out.println("</script>");
+                //out.println("<h3 style='color:red;'>Registration failed.</h3>");
             }
             ps.close();
             con.close();

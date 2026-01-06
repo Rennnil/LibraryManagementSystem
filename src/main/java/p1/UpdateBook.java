@@ -29,7 +29,7 @@ public class UpdateBook extends HttpServlet {
         String author = request.getParameter("author");
         String publisher = request.getParameter("publisher");
         String category = request.getParameter("category");
-        String publishedYear = request.getParameter("publishedyear");
+        int publishedYear = Integer.parseInt(request.getParameter("publishedyear"));
         int qty = Integer.parseInt(request.getParameter("qty"));
         Part imagePart = request.getPart("bookimage");
 
@@ -42,7 +42,7 @@ public class UpdateBook extends HttpServlet {
             ps.setString(2, author);
             ps.setString(3, publisher);
             ps.setString(4, category);
-            ps.setString(5, publishedYear);
+            ps.setInt(5, publishedYear);
             ps.setInt(6, qty);
             InputStream inputStream = imagePart.getInputStream();
             ps.setBinaryStream(7, inputStream, imagePart.getSize());

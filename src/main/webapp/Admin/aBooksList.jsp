@@ -3,12 +3,14 @@
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="java.sql.Connection" %>
 <%@ page import="p1.DBConnection" %>
+<%@ page import="java.awt.print.Book" %>
 <!DOCTYPE html>
 <html>
 <head>
     <!-- Basic Page Info -->
     <meta charset="utf-8"/>
-    <title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
+    <title>Lilbrio - Bookstore </title>
+    <link rel="icon" type="image/png" href="../User/images/Logo.png">
 
     <!-- Site favicon -->
     <link
@@ -245,6 +247,14 @@
         .ag-courses-item_date-box:last-child {
             margin-top: 10px;
         }
+        .ag-courses-item_title {
+            width: 100%;
+            display: inline-block;
+            white-space: nowrap;       /* Prevents text from wrapping */
+            overflow: hidden;          /* Hides extra text */
+            text-overflow: ellipsis;   /* Adds ... */
+            max-width: 150px;          /* Adjust width to control truncation */
+        }
     </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
@@ -334,12 +344,12 @@
                                     String AuthorImage = "data:image/jpeg;base64," + base64Image1;
 
                         %>
-                        <a href="playlist.jsp?id=<%=bookId%>" class="ag-courses_item">
+                        <a href="BookDetail.jsp?id=<%=bookId%>" class="ag-courses_item">
                             <div class="ag-courses_item">
                                 <div class="course-img-cover">
-                                    <img class="course-img" src="<%=AuthorImage%>" alt=""/>
+                                    <img class="course-img" src="<%=BookImage%>" alt=""/>
                                     <div class="fac-img-cover">
-                                        <img class="fac-img" src="<%=BookImage%>" alt=""/>
+                                        <img class="fac-img" src="<%=AuthorImage%>" alt=""/>
                                     </div>
                                 </div>
                                 <div class="ag-courses-item_link">

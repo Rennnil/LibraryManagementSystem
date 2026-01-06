@@ -52,22 +52,13 @@ public class GetBookDetails {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                // ✅ User details
                 String userName = rs.getString("FNAME") + " " + rs.getString("LNAME");
                 String userEmail = rs.getString("EMAIL");
-
-                // ✅ Book details
                 String title = rs.getString("TITLE");
                 byte[] imgBytes = rs.getBytes("BOOK_IMAGE");
-
-                // ✅ Dates
                 Date issueDate = rs.getDate("ISSUE_DATE");
                 Date dueDate = rs.getDate("DUE_DATE");
-
-                // ✅ Librarian details
                 String librarianName = rs.getString("LIBRARIAN_FNAME") + " " + rs.getString("LIBRARIAN_LNAME");
-
-                // ✅ Call your existing function
                 LibraryMailUtil.sendIssueMail(userName, userEmail, title, imgBytes, issueDate, dueDate, librarianName);
 
                 System.out.println("Issue Book Mail are send to : "+userEmail);

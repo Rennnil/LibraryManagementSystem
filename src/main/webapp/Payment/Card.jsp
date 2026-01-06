@@ -200,12 +200,6 @@
                 </button>
             </div>
             </form>
-            <table border="1">
-                <tr><th>Issue ID</th><td><%= issueId %></td></tr>
-                <tr><th>Book ID</th><td><%= bookId %></td></tr>
-                <tr><th>User ID</th><td><%= userId %></td></tr>
-                <tr><th>Librarian ID</th><td><%= librarianId %></td></tr>
-            </table>
             <form action="" method="post"></form>
         </div>
     </div>

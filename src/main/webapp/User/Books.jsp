@@ -133,7 +133,7 @@
             int qty = rs.getInt("QNTY");
             int available = rs.getInt("AVAILABLE_QNTY");
             double rating = rs.getDouble("RATING");
-            byte[] imgBytes = rs.getBytes("AUTHOR_IMAGE");
+            byte[] imgBytes = rs.getBytes("BOOK_IMAGE");
             String imageSrc = "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(imgBytes);
 
             int fullStars = (int) rating;
@@ -193,7 +193,13 @@
             <div class="card h-100 d-flex flex-column justify-content-between">
                 <img src="<%= imageSrc %>" class="card-img-top" alt="Book Image">
                 <div class="card-body">
-                    <h5 class="book-title"><%= title %></h5>
+                    <%
+                        String displayTitle = title;
+                        if (title != null && title.length() > 15) {
+                            displayTitle = title.substring(0, 15) + "...";
+                        }
+                    %>
+                    <h5 class="book-title" title="<%= title %>"><%= displayTitle %></h5>
                     <p class="book-meta"><i class="fas fa-user text-muted"></i> <strong>Author:</strong> <%= author %></p>
                     <p class="book-meta"><i class="fas fa-building text-muted"></i> <strong>Publisher:</strong> <%= publisher %></p>
                     <span class="badge rounded-pill <%= categoryClass %> mb-2">

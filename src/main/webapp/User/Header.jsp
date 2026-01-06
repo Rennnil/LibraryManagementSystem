@@ -62,17 +62,15 @@
             background-color: #f0f0f0;
         }
 
-        /* Show dropdown on hover */
-        .user-info-dropdown:hover .profile-dropdown {
-            display: block;
-        }
-
         .custom-small-modal {
-            max-width: 700px; /* You can change this to 400px, 500px etc. */
+            max-width: 700px;
         }
 
         .modal-content {
             padding: 10px 20px;
+        }
+        .profile-dropdown.show {
+            display: block !important;
         }
 
     </style>
@@ -170,7 +168,7 @@
                             <a class="nav-link me-4 active" href="index.jsp">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link me-4" href="">About</a>
+                            <a class="nav-link me-4" href="AboutUs.jsp">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link me-4" href="Books.jsp">Books</a>
@@ -206,7 +204,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link me-4" href="">Contact</a>
+                            <a class="nav-link me-4" href="" id="">Contact</a>
                         </li>
                     </ul>
                     <div class="user-items d-flex">
@@ -241,11 +239,11 @@
 
                                     <div class="user-info-dropdown" style="position: relative;">
                                         <div class="dropdown">
-                                            <a href="#" role="button">
-                                                <span class="user-icon">
-                                                    <img src="<%= userImage %>" alt="Profile"
-                                                         style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;" />
-                                                </span>
+                                            <a href="javascript:void(0);" role="button" class="user-icon-btn">
+                                            <span class="user-icon">
+                                                <img src="<%= userImage %>" alt="Profile"
+                                                     style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;" />
+                                            </span>
                                             </a>
 
                                             <!-- Dropdown content -->
@@ -262,6 +260,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </li>
                         </ul>
@@ -379,6 +378,26 @@
         </div>
     </nav>
 </header>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const userIconBtn = document.querySelector(".user-icon-btn");
+        const dropdown = document.querySelector(".profile-dropdown");
+
+        userIconBtn.addEventListener("click", function(e) {
+            e.preventDefault();
+            dropdown.classList.toggle("show");
+        });
+
+        // Optional: close dropdown when clicking outside
+        document.addEventListener("click", function(e) {
+            if (!userIconBtn.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.remove("show");
+            }
+        });
+    });
+</script>
+
 <script src="js/jquery-1.11.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

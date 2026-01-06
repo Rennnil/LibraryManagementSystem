@@ -5,6 +5,7 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.*;
 import java.sql.Connection;
 import java.time.LocalDate;
@@ -24,7 +25,7 @@ public class ReturnBookServlet extends HttpServlet {
         int bookId = Integer.parseInt(request.getParameter("bookId"));
         HttpSession session = request.getSession(false);
         Integer librarianId = (Integer) session.getAttribute("userId");
-
+        PrintWriter out = response.getWriter();
         try {
             Connection con=DBConnection.getConnection();
 
@@ -90,7 +91,11 @@ public class ReturnBookServlet extends HttpServlet {
 
                 response.sendRedirect(request.getContextPath() + "/User/BorrowedBooks.jsp");
             } else {
-                System.out.println("Failed to return the book.");
+                out.println("<script type='text/javascript'>");
+                out.println("alert('Book Are Not Returned');");
+                out.println("window.location.href='" + request.getContextPath() + "/User/BorrowedBooks.jsp';");
+                out.println("</script>");
+                //System.out.println("Failed to return the book.");
             }
 
         } catch (Exception e) {

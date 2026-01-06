@@ -6,26 +6,27 @@
 <head>
     <!-- Basic Page Info -->
     <meta charset="utf-8"/>
-    <title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
+    <title>Lilbrio - Bookstore </title>
+    <link rel="icon" type="image/png" href="../User/images/Logo.png">
 
     <!-- Site favicon -->
-    <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="../vendors/images/apple-touch-icon.png"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="../vendors/images/favicon-32x32.png"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="../vendors/images/favicon-16x16.png"
-    />
+<%--    <link--%>
+<%--            rel="apple-touch-icon"--%>
+<%--            sizes="180x180"--%>
+<%--            href="../vendors/images/apple-touch-icon.png"--%>
+<%--    />--%>
+<%--    <link--%>
+<%--            rel="icon"--%>
+<%--            type="image/png"--%>
+<%--            sizes="32x32"--%>
+<%--            href="../vendors/images/favicon-32x32.png"--%>
+<%--    />--%>
+<%--    <link--%>
+<%--            rel="icon"--%>
+<%--            type="image/png"--%>
+<%--            sizes="16x16"--%>
+<%--            href="../vendors/images/favicon-16x16.png"--%>
+<%--    />--%>
 
     <!-- Mobile Specific Metas -->
     <meta
@@ -115,7 +116,6 @@
                     <tr>
                         <th class="table-plus">Name</th>
                         <th>Email</th>
-                        <th>Password</th>
                         <th>Mobile Number</th>
                         <th>Address</th>
                         <th>Join Date</th>
@@ -139,7 +139,7 @@
                                 int roleId = rs.getInt("ROLE_ID");
                                 String address = rs.getString("ADDRESS");
                                 java.sql.Date createdAt = rs.getDate("CREATED_AT");
-                                byte[] imgBytes = rs.getBytes("USER_IMAGE");
+                                byte[] imgBytes = rs.getBytes("IMAGE");
                                 String UserImagestr = "";
                                 if (imgBytes != null) {
                                     UserImagestr = java.util.Base64.getEncoder().encodeToString(imgBytes);
@@ -162,21 +162,11 @@
                             </div>
                         </td>
                         <td><%=email%></td>
-                        <td><%=password%></td>
                         <td><%=mobile%> </td>
                         <td><%=address%></td>
                         <td><%=createdAt%></td>
-                        <!-- <td>
-                            <span
-                                class="badge badge-pill"
-                                data-bgcolor="#e7ebf5"
-                                data-color="#265ed7"
-                                >Typhoid</span
-                            >
-                        </td> -->
                         <td>
                             <div class="table-actions">
-
                                 <a href="?id=<%=userId%>" class="btn" data-color="#e95959"
                                    data-toggle="modal" data-target="#deleteModal"
                                 ><i class="icon-copy dw dw-delete-3"></i

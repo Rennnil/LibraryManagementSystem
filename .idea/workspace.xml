@@ -9,8 +9,58 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20ede9db-65ad-4f46-8bb0-4cae003f9925" name="Changes" comment="Commit">
+    <list default="true" id="20ede9db-65ad-4f46-8bb0-4cae003f9925" name="Changes" comment="Final Commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p1/AddBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p1/AddBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p1/DeleteBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p1/DeleteBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p1/EditUserProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p1/EditUserProfileServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p1/GetBookDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p1/GetBookDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p1/IssueBookServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p1/IssueBookServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p1/LibraryMailUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p1/LibraryMailUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p1/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p1/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p1/PayFineServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p1/PayFineServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p1/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p1/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p1/ReturnBookServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p1/ReturnBookServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p1/UpdateBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p1/UpdateBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p1/UserRegisterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p1/UserRegisterServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/Courcepart2.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/HeaderSideBar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Admin/HeaderSideBar.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/ManageLibrarian.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Admin/ManageLibrarian.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/aAddBooks.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Admin/aAddBooks.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/aBooksList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Admin/aBooksList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/aLibrarian.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Admin/aLibrarian.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/aLibrarianDetails.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Admin/aLibrarianDetails.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/aProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Admin/aProfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/aStudents.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Admin/aStudents.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/addCourse.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/addFaculty.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/addLecture.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/calendar.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/course.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/faculty.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/facultyDetails.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/gallery.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Admin/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/invoice.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/playlist.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/profile.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Admin/studentQuery.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Librarian/AddBook.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Librarian/AddBook.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Librarian/BookDetails.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Librarian/BookDetails.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Librarian/BooksList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Librarian/BooksList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Librarian/EditProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Librarian/EditProfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Librarian/Profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Librarian/Profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Librarian/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Librarian/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Payment/Card.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Payment/Card.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Payment/Reciept.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Payment/Reciept.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/User/Books.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/User/Books.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/User/BorrowedBooks.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/User/BorrowedBooks.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/User/CategoryBooks.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/User/CategoryBooks.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/User/Header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/User/Header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/User/SearchBooks.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/User/SearchBooks.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/User/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/User/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,6 +334,7 @@
       <workItem from="1750871007977" duration="1623000" />
       <workItem from="1750926936639" duration="176000" />
       <workItem from="1757048524273" duration="793000" />
+      <workItem from="1767697718876" duration="638000" />
     </task>
     <task id="LOCAL-00001" summary="Commit">
       <option name="closed" value="true" />
@@ -309,6 +360,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit" />
+    <MESSAGE value="Final Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final Commit" />
   </component>
 </project>

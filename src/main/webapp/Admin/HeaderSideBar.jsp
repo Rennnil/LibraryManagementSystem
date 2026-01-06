@@ -153,6 +153,25 @@
                     </a>
                 </li>
                 <li>
+                    <a href="aIssueBooks.jsp" class="dropdown-toggle no-arrow">
+                        <span class="micon bi bi-book-half"></span>
+                        <span class="mtext">Issued Books</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="aReturnBook.jsp" class="dropdown-toggle no-arrow">
+                        <span class="micon bi bi-arrow-repeat"></span>
+                        <span class="mtext">Return Books</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="aFine.jsp" class="dropdown-toggle no-arrow">
+                        <span class="micon bi bi-wallet-fill"></span>
+                        <span class="mtext">Fine Management</span>
+                    </a>
+                </li>
+                <li>
+                <li>
                     <a href="aProfile.jsp" class="dropdown-toggle no-arrow">
                         <span class="micon bi-person-circle"></span>
                         <span class="mtext">Profile</span>

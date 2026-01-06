@@ -1,10 +1,7 @@
 <%@ page import="java.text.DecimalFormat" %>
-<%@ page import="java.sql.Statement" %>
-<%@ page import="java.sql.ResultSet" %>
-<%@ page import="java.sql.DriverManager" %>
-<%@ page import="java.sql.Connection" %>
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="p1.DBConnection" %><%--
+<%@ page import="p1.DBConnection" %>
+<%@ page import="java.sql.*" %><%--
   Created by IntelliJ IDEA.
   User: lakha
   Date: 19-06-2025
@@ -109,52 +106,64 @@
 
 <jsp:include page="HeaderSideBar.jsp" flush="true"></jsp:include>
 
+<%@ page import="java.sql.*,java.text.DecimalFormat,java.io.*" %>
+<%@ page import="p1.DBConnection" %>
+
 <%
-    PrintWriter pw=response.getWriter();
-    int totalBooks = 0;
-    int issuedBooks = 0;
-    int returnedBooks = 0;
+    PrintWriter pw = response.getWriter();
+    int totalBooks = 0, issuedBooks = 0, returnedBooks = 0;
     double totalFines = 0.0;
     DecimalFormat df = new DecimalFormat("#,##0.00");
 
+    Integer librarianId = (Integer) session.getAttribute("userId");
+
+    if (librarianId == null) {
+        pw.println("<h3 style='color:red'>Session expired! Please <a href='../login.jsp'>login</a> again.</h3>");
+        return;
+    }
+
     try {
-        Connection con= DBConnection.getConnection();
+        Connection con = DBConnection.getConnection();
+        PreparedStatement ps;
+        ResultSet rs;
 
-        Statement stmt = con.createStatement();
+        // Total Books added by librarian
+        ps = con.prepareStatement("SELECT COUNT(*) FROM BOOK WHERE USER_ID=?");
+        ps.setInt(1,librarianId);
+        rs = ps.executeQuery();
+        if (rs.next()) totalBooks = rs.getInt(1);
+        rs.close(); ps.close();
 
-        // Total Books
-        ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS TOTAL_BOOKS FROM BOOK");
-        if (rs1.next()) totalBooks = rs1.getInt("TOTAL_BOOKS");
-        rs1.close();
+        // Issued Books processed by librarian
+        ps = con.prepareStatement("SELECT COUNT(*) FROM ISSUE_BOOK WHERE STATUS='Issued' AND LIBRARIAN_ID=?");
+        ps.setInt(1,librarianId);
+        rs = ps.executeQuery();
+        if (rs.next()) issuedBooks = rs.getInt(1);
+        rs.close(); ps.close();
 
-        // Issued Books
-        ResultSet rs2 = stmt.executeQuery("SELECT COUNT(*) AS ISSUED_BOOKS FROM ISSUE_BOOK WHERE STATUS = 'Issued'");
-        if (rs2.next()) issuedBooks = rs2.getInt("ISSUED_BOOKS");
-        rs2.close();
+        // Returned Books processed by librarian
+        ps = con.prepareStatement("SELECT COUNT(*) FROM ISSUE_BOOK WHERE STATUS='Returned' AND LIBRARIAN_ID=?");
+        ps.setInt(1,librarianId);
+        rs = ps.executeQuery();
+        if (rs.next()) returnedBooks = rs.getInt(1);
+        rs.close(); ps.close();
 
-        // Returned Books
-        ResultSet rs3 = stmt.executeQuery("SELECT COUNT(*) AS RETURNED_BOOKS FROM ISSUE_BOOK WHERE STATUS = 'Returned'");
-        if (rs3.next()) returnedBooks = rs3.getInt("RETURNED_BOOKS");
-        rs3.close();
+        // Total fines recorded by librarian
+        ps = con.prepareStatement("SELECT NVL(SUM(AMOUNT),0) FROM FINE WHERE LIBRARIAN_ID=?");
+        ps.setInt(1,librarianId);
+        rs = ps.executeQuery();
+        if (rs.next()) totalFines = rs.getDouble(1);
+        rs.close(); ps.close();
 
-        // Total Fines
-        ResultSet rs4 = stmt.executeQuery("SELECT NVL(SUM(AMOUNT), 0) AS TOTAL_FINE FROM FINE");
-        if (rs4.next()) totalFines = rs4.getDouble("TOTAL_FINE");
-        rs4.close();
-
-        stmt.close();
         con.close();
     } catch (Exception e) {
-        pw.println("Error fetching dashboard data: " + e.getMessage());
+        pw.println("<h3 style='color:red'>Error fetching dashboard data: " + e.getMessage() + "</h3>");
     }
 %>
 
 <div class="main-container">
     <div class="xs-pd-20-10 pd-ltr-20">
-        <div class="title pb-20">
-            <h2 class="h3 mb-0">Library Overview</h2>
-        </div>
-
+        <div class="title pb-20"><h2 class="h3 mb-0">Library Overview</h2></div>
         <div class="row pb-10">
             <!-- Total Books -->
             <div class="col-xl-3 col-lg-3 col-md-6 mb-20">
@@ -164,15 +173,10 @@
                             <div class="weight-700 font-24 text-dark"><%= totalBooks %></div>
                             <div class="font-14 text-secondary weight-500">Total Books</div>
                         </div>
-                        <div class="widget-icon">
-                            <div class="icon" data-color="#00eccf">
-                                <i class="icon-copy ti-book"></i>
-                            </div>
-                        </div>
+                        <div class="widget-icon"><i class="icon-copy ti-book"></i></div>
                     </div>
                 </div>
             </div>
-
             <!-- Issued Books -->
             <div class="col-xl-3 col-lg-3 col-md-6 mb-20">
                 <div class="card-box height-100-p widget-style3">
@@ -181,15 +185,10 @@
                             <div class="weight-700 font-24 text-dark"><%= issuedBooks %></div>
                             <div class="font-14 text-secondary weight-500">Issued Books</div>
                         </div>
-                        <div class="widget-icon">
-                            <div class="icon" data-color="#ff5b5b">
-                                <span class="icon-copy ti-export"></span>
-                            </div>
-                        </div>
+                        <div class="widget-icon"><i class="icon-copy ti-export"></i></div>
                     </div>
                 </div>
             </div>
-
             <!-- Returned Books -->
             <div class="col-xl-3 col-lg-3 col-md-6 mb-20">
                 <div class="card-box height-100-p widget-style3">
@@ -198,15 +197,10 @@
                             <div class="weight-700 font-24 text-dark"><%= returnedBooks %></div>
                             <div class="font-14 text-secondary weight-500">Returned Books</div>
                         </div>
-                        <div class="widget-icon">
-                            <div class="icon">
-                                <i class="icon-copy ti-import" aria-hidden="true"></i>
-                            </div>
-                        </div>
+                        <div class="widget-icon"><i class="icon-copy ti-import"></i></div>
                     </div>
                 </div>
             </div>
-
             <!-- Total Fines -->
             <div class="col-xl-3 col-lg-3 col-md-6 mb-20">
                 <div class="card-box height-100-p widget-style3">
@@ -215,11 +209,7 @@
                             <div class="weight-700 font-24 text-dark">₹<%= df.format(totalFines) %></div>
                             <div class="font-14 text-secondary weight-500">Total Fines</div>
                         </div>
-                        <div class="widget-icon">
-                            <div class="icon" data-color="#09cc06">
-                                <i class="icon-copy fa fa-money" aria-hidden="true"></i>
-                            </div>
-                        </div>
+                        <div class="widget-icon"><i class="icon-copy fa fa-money"></i></div>
                     </div>
                 </div>
             </div>

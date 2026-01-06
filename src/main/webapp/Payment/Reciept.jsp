@@ -1,5 +1,6 @@
 <%@ page import="java.sql.*" %>
-<%@ page import="java.io.PrintWriter" %><%--
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="p1.DBConnection" %><%--
   Created by IntelliJ IDEA.
   User: lakha
   Date: 31-08-2025
@@ -82,12 +83,10 @@
                     PrintWriter pw = response.getWriter();
                     String issueId = request.getParameter("issueId");
                     if(issueId != null){
-                        Connection con = null;
                         PreparedStatement ps = null;
                         ResultSet rs = null;
                         try{
-                            Class.forName("oracle.jdbc.driver.OracleDriver");
-                            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","system");
+                            Connection con=DBConnection.getConnection();
 
                             String sql = "SELECT u.FNAME, u.LNAME, u.EMAIL, u.MOBILE_NO, " +
                                     "b.TITLE, b.AUTHOR, b.PUBLISHER, b.AUTHOR_IMAGE, " +
@@ -153,7 +152,7 @@
                     <!-- USER CONTACT -->
                     <div class="row mt-4">
                         <div class="col-sm-6">
-                            <div><b>Contact Us :</b> managelibrary01@gmail.com</div>
+                            <div><b>Contact Us :</b> lilbriomanagement@gmail.com</div>
                         </div>
                         <div class="col-sm-6 text-right">
                             <div><b>Total :</b> ₹<%= amount %></div>
@@ -171,7 +170,6 @@
                         } finally {
                             if(rs!=null) try{rs.close();}catch(Exception ex){}
                             if(ps!=null) try{ps.close();}catch(Exception ex){}
-                            if(con!=null) try{con.close();}catch(Exception ex){}
                         }
                     } else {
                         pw.println("<p class='text-danger'>Issue ID missing!</p>");

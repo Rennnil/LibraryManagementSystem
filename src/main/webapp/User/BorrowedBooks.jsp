@@ -65,9 +65,6 @@
 </head>
 <body>
 
-
-
-
 <jsp:include page="Header.jsp" flush="true"></jsp:include>
 
 <%
@@ -220,7 +217,16 @@
             %>
             <tr>
                 <td><img src="<%= imageSrc %>" alt="Book" class="book-img"></td>
-                <td><%= title %></td>
+                <td>
+                    <%
+                        String displayTitle = title;
+                        if (title != null && title.length() > 15) {
+                            displayTitle = title.substring(0, 15) + "...";
+                        }
+                    %>
+                    <%= displayTitle %>
+                </td>
+<%--                <td><%= title %></td>--%>
                 <td><%= (issueDate != null) ? sdf.format(issueDate) : "--" %></td>
                 <td><%= (dueDate != null) ? sdf.format(dueDate) : "--" %></td>
                 <td><%= (returnDate != null) ? sdf.format(returnDate) : "--" %></td>

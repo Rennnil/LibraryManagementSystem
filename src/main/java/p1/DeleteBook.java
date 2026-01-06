@@ -18,7 +18,7 @@ public class DeleteBook extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         try {
-            int id = Integer.parseInt(request.getParameter("id")); // not "deleteId"
+            int id = Integer.parseInt(request.getParameter("id"));
             Connection con= DBConnection.getConnection();
 
             String sql = "DELETE FROM BOOK WHERE BOOK_ID = ?";
@@ -29,6 +29,10 @@ public class DeleteBook extends HttpServlet {
             if (deleted > 0) {
                 response.sendRedirect(request.getContextPath() + "/Admin/addCourse.jsp");
             } else {
+                out.println("<script type='text/javascript'>");
+                out.println("alert('Book Are Not Deleted');");
+                out.println("window.location.href='" +request.getContextPath() + "/Admin/addCourse.jsp';");
+                out.println("</script>");
                 out.println("<h3 style='color:red;'>Book not found or already deleted.</h3>");
             }
 

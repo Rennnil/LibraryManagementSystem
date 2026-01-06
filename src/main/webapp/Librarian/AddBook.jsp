@@ -351,7 +351,7 @@ int userId = (int) session1.getAttribute("userId");
                 </button>
             </div>
             <div class="modal-body">
-                <form action="../UpdateBook" method="post" enctype="multipart/form-data">
+                <form action="../UpdateBook" method="get" enctype="multipart/form-data">
                     <input type="hidden" name="bookId" id="editBookId">
 
                     <div class="mb-3">
@@ -384,7 +384,7 @@ int userId = (int) session1.getAttribute("userId");
                     </div>
 
                     <div class="d-flex" style="gap: 20px;">
-                        <button type="submit" class="btn btn-primary w-75">Add Book</button>
+                        <button type="submit" class="btn btn-primary w-75">Edit Book</button>
                         <button
                                 type="button"
                                 class="btn btn-danger w-25"

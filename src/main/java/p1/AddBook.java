@@ -16,6 +16,7 @@ import java.sql.Connection;
 )
 
 @WebServlet(name = "AddBook", value = "/AddBook")
+
 public class AddBook extends HttpServlet {
 
     @Override
@@ -75,9 +76,13 @@ public class AddBook extends HttpServlet {
             int inserted = ps.executeUpdate();
 
             if (inserted > 0) {
-                response.sendRedirect(request.getContextPath() + "/Admin/addCourse.jsp");
+                response.sendRedirect(request.getContextPath() + "/Librarian/AddBook.jsp");
             } else {
-                out.println("<h3 style='color:red;'>Failed to add book.</h3>");
+                //out.println("<h3 style='color:red;'>Failed to add book.</h3>");
+                out.println("<script type='text/javascript'>");
+                out.println("alert('Book Are not Added');");
+                out.println("window.location.href='" + request.getContextPath() + "/Librarian/AddBook.jsp';");
+                out.println("</script>");
             }
 
         } catch (Exception e) {

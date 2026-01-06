@@ -142,7 +142,7 @@
         int available = rs.getInt("AVAILABLE_QNTY");
         double rating = rs.getDouble("RATING");
         String category = rs.getString("CATEGORY");
-        byte[] imgBytes = rs.getBytes("AUTHOR_IMAGE");
+        byte[] imgBytes = rs.getBytes("BOOK_IMAGE");
         String imageSrc = (imgBytes != null)
                 ? "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(imgBytes)
                 : "default.jpg"; // fallback

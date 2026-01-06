@@ -255,7 +255,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="../AddBook" method="post" enctype="multipart/form-data">
+                <form action="../AdminAddBookServlet" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="exampleInputEmail1">Title</label>
                         <input type="text" name="title" class="form-control">
@@ -288,6 +288,35 @@
                     <div class="mb-3">
                         <label for="exampleInputPassword1">Qty</label>
                         <input type="number" name="qty" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="librarian">Assign Librarian</label>
+                        <select name="librarianId" class="form-control">
+                            <%
+                                Connection con = null;
+                                PreparedStatement ps = null;
+                                ResultSet rs = null;
+                                try {
+                                    con = p1.DBConnection.getConnection();
+                                    String sql = "SELECT USER_ID, FNAME, LNAME FROM USERS WHERE ROLE_ID = (SELECT ROLE_ID FROM ROLE WHERE ROLE_NAME = 'Librarian')";
+                                    ps = con.prepareStatement(sql);
+                                    rs = ps.executeQuery();
+                                    while (rs.next()) {
+                            %>
+                            <option value="<%= rs.getInt("USER_ID") %>">
+                                <%= rs.getString("FNAME") %> <%= rs.getString("LNAME") %>
+                            </option>
+                            <%
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                } finally {
+                                    if (rs != null) rs.close();
+                                    if (ps != null) ps.close();
+                                    if (con != null) con.close();
+                                }
+                            %>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1">Book Image</label>

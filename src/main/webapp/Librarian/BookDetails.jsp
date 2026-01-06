@@ -1,6 +1,7 @@
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="p1.DBConnection" %>
+<%@ page import="java.awt.print.Book" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -209,7 +210,7 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-12 col-sm-12 mt-3">
                             <div class="product-detail-desc pd-20 card-box height-100-p" style="height: 400px; display: flex; align-items: center; justify-content: center;">
-                                <img src="<%=AuthorImage%>" alt="Book Image"
+                                <img src="<%=BookImage%>" alt="Book Image"
                                      style="max-height: 100%; max-width: 100%; object-fit: contain; border-radius: 10px;">
                             </div>
                         </div>
@@ -220,7 +221,7 @@
                                     <div class="demo p-4" style="background-image: url('https://i.makeagif.com/media/6-21-2021/Ml33kt.gif');border-radius: 10px;color: white;justify-content: center;background-repeat: no-repeat;
 											background-attachment: fixed;
 											background-size: cover; text-align: center; display: flex; flex-direction: column; align-items: center;">
-                                        <img class="profile-img" src="<%=BookImage%>" alt="">
+                                        <img class="profile-img" src="<%=AuthorImage%>" alt="">
                                         <div>
                                             <h3 style="font-size: large; margin-top: 10px; color: white;"><%=author%></h3>
                                             <!-- <span>Published Year</span> -->

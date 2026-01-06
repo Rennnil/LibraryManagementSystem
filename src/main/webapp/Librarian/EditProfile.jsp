@@ -190,7 +190,7 @@
                                 String mobile = rs.getString("MOBILE_NO");
                                 int roleId = rs.getInt("ROLE_ID");
                                 String address = rs.getString("ADDRESS");
-                                byte[] imgBytes = rs.getBytes("USER_IMAGE");
+                                byte[] imgBytes = rs.getBytes("IMAGE");
                                 String base64Image = "";
                                 if (imgBytes != null) {
                                     base64Image = java.util.Base64.getEncoder().encodeToString(imgBytes);
@@ -202,7 +202,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex flex-column align-items-center text-center">
-                                        <img src="<%= session.getAttribute("USER_IMAGE") %>" alt="Admin" class="rounded-circle" width="150">
+                                        <img src="<%= session.getAttribute("IMAGE") %>" alt="Admin" class="rounded-circle" width="150">
 
                                         <div class="mt-3">
                                             <%--                                        <h4>Librarian Name</h4>--%>
