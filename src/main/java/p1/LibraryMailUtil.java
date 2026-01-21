@@ -23,7 +23,7 @@ public class LibraryMailUtil {
 
     // ✅ Email credentials
     private static final String FROM = "lilbriomanagement@gmail.com";
-    private static final String PASSWORD = "lpli qccb tdvu tuxq";   // Gmail App Password
+    private static final String PASSWORD = "";   // Gmail App Password
 
     // ✅ Common mail session
     private static Session getSession() {
